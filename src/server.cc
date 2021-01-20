@@ -4,6 +4,7 @@
 #include <sys/errno.h>
 #include <sys/socket.h>
 #include "happ/happ.h"
+#include "hlog/hlog.h"
 
 using namespace happ;
 class TestServer : public Happ {
@@ -25,8 +26,8 @@ class TestServer : public Happ {
 
     int fd = socket(AF_INET, SOCK_STREAM, 0);
     printf("fd:%d\n", fd);
-    bind(fd, (sockaddr *)&addr, sizeof(struct sockaddr));
-    int res = listen(fd, 100);
+    int res = bind(fd, (sockaddr *)&addr, sizeof(struct sockaddr));
+    res = listen(fd, 100);
     printf("listen res:%d\n", res);
     socklen_t len = 0;
     int clifd = accept(fd, (sockaddr *)&addr, &len);

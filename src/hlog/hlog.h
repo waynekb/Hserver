@@ -3,8 +3,7 @@
 #include <stdio.h>
 #include <string>
 
-using namespace std;
-
+using std::string;
 class HlogMod {
  public:
   enum H_LEVEL {

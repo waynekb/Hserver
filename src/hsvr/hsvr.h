@@ -8,17 +8,21 @@ namespace happ {
 
 class HappSvr : public Happ {
  public:
-  HappSvr() {
-  }
-  ~HappSvr() {
+  HappSvr() : m_svrfd(0) {
   }
 
-  virtual int OnUpdate() {
-    return 1;
+  virtual ~HappSvr() {
   }
+  virtual int OnUpdate();
+  virtual int OnInit();
 
-  int OnInit();
-};
+ private:
+  int Add_moni_event(int fd);
+  int Del_moni_event(int fd);
+  int m_svrfd;
+  int m_kq;
+
+};  // namespace happ
 
 }  // namespace happ
 

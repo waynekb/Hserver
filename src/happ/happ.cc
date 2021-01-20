@@ -6,9 +6,6 @@ int Happ::Run() {
   GetLogMod()->Init_log(HlogMod::H_LEVEL::DEBUG,
                         "/Users/waynebfhu/Documents/study/H3_server/logs/hsvr_log.log");
   OnInit();
-  // OnTest();
-  HLOG_DEBUG("RUN END\n");
-  return 0;
   while (1) {
     if (m_stopflag) {
       break;
@@ -18,6 +15,7 @@ int Happ::Run() {
     }
     OnUpdate();
     OnTick();
+    sleep(1);
   }
   return 0;
 }

@@ -3,6 +3,7 @@
 #include <iostream>
 
 #include <time.h>
+using namespace std;
 
 void HlogMod::Init_log(H_LEVEL level, string filename) {
   m_level = level;
