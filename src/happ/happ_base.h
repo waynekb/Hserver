@@ -4,26 +4,6 @@
 #include "unistd.h"
 namespace happ {
 
-struct HappCTX {
-  int argc;
-  char** argv;
-  void* pragma;
-
-  HappCTX() {
-    ClearCtx();
-  }
-
-  void ClearCtx() {
-    argc = 0;
-    argv = nullptr;
-    pragma = nullptr;
-    return;
-  }
-};
-
-typedef struct HappCTX HAPPCTX;
-typedef struct HappCTX* PTHAPPCTX;
-
 class Nocopyable {
  public:
   Nocopyable() {
