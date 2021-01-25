@@ -3,27 +3,24 @@
 
 #include <sys/event.h>
 #include "happ/happ.h"
+#include "hkq.h"
 
-namespace happ {
+using namespace happ;
+namespace hsvr {
 
-class HappSvr : public Happ {
+class HAppSvr : public Happ {
  public:
-  HappSvr() : m_svrfd(0) {
+  HAppSvr() {
   }
 
-  virtual ~HappSvr() {
+  virtual ~HAppSvr() {
   }
   virtual int OnUpdate();
   virtual int OnInit();
 
  private:
-  int Add_moni_event(int fd);
-  int Del_moni_event(int fd);
-  int m_svrfd;
-  int m_kq;
-
 };  // namespace happ
 
-}  // namespace happ
+}  // namespace hsvr
 
 #endif

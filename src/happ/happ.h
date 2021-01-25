@@ -1,9 +1,16 @@
 #ifndef _HAPP_HAPP_H
 #define _HAPP_HAPP_H
-
-#include "happ_base.h"
+#include "common/hobject.h"
 
 namespace happ {
+
+class HappBase : public Nocopyable {
+ public:
+  HappBase();
+  virtual ~HappBase();
+
+  HappBase* GetApp();
+};
 
 class Happ : public HappBase {
  public:

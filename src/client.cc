@@ -19,12 +19,14 @@ int main(int argc, char** argv) {
   }
 
   char buff[1024] = "ni hao ya dengqiyao!";
-  if (connect(clifd, (struct sockaddr*)&cliaddr, sizeof(struct sockaddr)) < 0) {
+  int res = connect(clifd, (struct sockaddr*)&cliaddr, sizeof(struct sockaddr));
+  printf("connect %d\n", res);
+  if (res < 0) {
     perror("connect server fail:");
     return -1;
   }
   printf("strlen %ld\n", strlen(buff));
-  int res = send(clifd, buff, strlen(buff), 0);
+  res = send(clifd, buff, strlen(buff), 0);
   printf("send len %d\n", res);
   close(clifd);
   return 0;

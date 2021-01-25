@@ -1,11 +1,35 @@
 #include "happ.h"
 #include "hlog/hlog.h"
+#include "unistd.h"
 
 using namespace happ;
+
+static HappBase* h_app = nullptr;
+
+HappBase::HappBase() {
+  if (h_app != nullptr) {
+    HLOG_WARN("Only allow one\n");
+    abort();
+  }
+  h_app = this;
+}
+
+HappBase::~HappBase() {
+  if (h_app != nullptr) {
+    h_app = nullptr;
+  }
+}
+
+HappBase* HappBase::GetApp() {
+  return h_app;
+}
+
 int Happ::Run() {
   GetLogMod()->Init_log(HlogMod::H_LEVEL::DEBUG,
                         "/Users/waynebfhu/Documents/study/H3_server/logs/hsvr_log.log");
+  HLOG_DEBUG("\n");
   OnInit();
+  HLOG_DEBUG("\n");
   while (1) {
     if (m_stopflag) {
       break;

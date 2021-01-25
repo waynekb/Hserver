@@ -19,6 +19,7 @@ aux_source_directory(. DIR_SRCS)
 add_subdirectory(hlog)
 add_subdirectory(happ)
 add_subdirectory(hsvr)
+#add_subdirectory(common)
 
 # 指定生成目标
 add_executable(hserver main.cc)
@@ -30,5 +31,5 @@ include_directories(${CMAKE_SOURCE_DIR})
 target_link_libraries(hserver LogMod HappMod HsvrMod)
 
 add_executable(hclient client.cc)
-add_executable(htest server.cc)
-target_link_libraries(htest LogMod HappMod)
+#add_executable(htest server.cc)
+#target_link_libraries(htest LogMod HappMod)

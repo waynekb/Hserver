@@ -4,10 +4,10 @@
 #include "hsvr/hsvr.h"
 
 using namespace std;
-using namespace happ;
+using namespace hsvr;
 
 int main(int argc, char** argv) {
-  HappSvr appsvr;
+  HAppSvr appsvr;
   appsvr.Run();
   return 0;
 }
