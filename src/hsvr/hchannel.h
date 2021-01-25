@@ -5,11 +5,11 @@
 
 namespace hsvr {
 
-class Channel {
+class HChannel {
  public:
-  Channel() {
+  HChannel() {
   }
-  virtual ~Channel() {
+  virtual ~HChannel() {
   }
   virtual int Open() {
     return 0;

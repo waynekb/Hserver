@@ -17,12 +17,12 @@ class HMonitChannelMgr : public Singleton<HMonitChannelMgr> {
   ~HMonitChannelMgr() {
   }
 
-  int Add(int fd, Channel* channel);
+  int Add(int fd, HChannel* channel);
   int Del(int fd);
-  Channel* Find(int fd);
+  HChannel* Find(int fd);
 
  private:
-  typedef std::map<int, Channel*> ChannelMap;
+  typedef std::map<int, HChannel*> ChannelMap;
   typedef ChannelMap::iterator ChannleMapIt;
   ChannelMap m_map;
 };
@@ -34,11 +34,11 @@ class HChannelPool {
   ~HChannelPool() {
   }
 
-  Channel* GetNewChannel();
-  void AddChannel(Channel* channel);
+  HChannel* GetNewChannel();
+  void AddChannel(HChannel* channel);
 
  private:
-  typedef std::list<Channel*> ChannelList;
+  typedef std::list<HChannel*> ChannelList;
 
   ChannelList m_list;
 };

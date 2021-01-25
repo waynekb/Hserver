@@ -36,7 +36,7 @@ int HAppSvr::OnInit() {
   }
   //把listen 加入到监听管理模块
   HMonitChannelMgr* mgr = HMonitChannelMgr::GetInstance();
-  mgr->Add(listen->Getfd(), (Channel*)listen);
+  mgr->Add(listen->Getfd(), (HChannel*)listen);
 
   //初始化channelpool资源池
   HTcpChannelPool::GetInstance()->InitPool();
