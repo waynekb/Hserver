@@ -7,7 +7,7 @@
 
 namespace hsvr {
 
-class ListenChannel : public Singleton<ListenChannel>, private Channel {
+class ListenChannel : public Singleton<ListenChannel>, public Channel {
  public:
   ListenChannel() {
   }
@@ -22,7 +22,7 @@ class ListenChannel : public Singleton<ListenChannel>, private Channel {
   virtual int HandleOutput();
 };
 
-class HTcpChannel : private Channel {
+class HTcpChannel : public Channel {
  public:
   HTcpChannel() {
   }

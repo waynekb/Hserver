@@ -12,24 +12,19 @@ int Hkq::Open_hkq() {
     HLOG_ERR("create kqueue fail\n");
     return -1;
   }
-  HLOG_DEBUG("m_kq = %d\n", m_kq);
   return 0;
 }
 
 int Hkq::Loop_hkq() {
   struct kevent events[MAX_EVENTS_NUM];
-  HLOG_DEBUG("\n");
   int ev_num = kevent(m_kq, NULL, 0, events, MAX_EVENTS_NUM, NULL);
   HLOG_DEBUG("ev_num = %d\n", ev_num);
   for (int i = 0; i < ev_num; i++) {
-    HLOG_DEBUG("\n");
     struct kevent event = events[i];
     int ready_fd = event.ident;
-    HLOG_DEBUG("\n");
     HMonitChannelMgr* mgr = HMonitChannelMgr::GetInstance();
     mgr->Find(ready_fd)->HandleInput();
   }
-  HLOG_DEBUG("\n");
   return ev_num;
 }
 
@@ -42,7 +37,7 @@ void Hkq::Close_hkq() {
 
 int Hkq::Add_event(int fd, int16_t filter) {
   struct kevent ev;
-  EV_SET(&ev, fd, filter, EV_ADD | EV_ENABLE, 0, 0, NULL);
+  EV_SET(&ev, fd, filter, EV_ADD | EV_ENABLE | EV_CLEAR, 0, 0, NULL);
   return kevent(m_kq, &ev, 1, NULL, 0, NULL);
   /*
   if (filter == EVFILT_READ) {

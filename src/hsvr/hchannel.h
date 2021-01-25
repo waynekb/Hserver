@@ -22,6 +22,9 @@ class Channel {
   inline int Attach(int fd) {
     return m_sock.Attach(fd);
   }
+  virtual int Getfd() {
+    return m_sock.Getfd();
+  }
   virtual void Close() = 0;
 
   virtual int HandleInput() = 0;

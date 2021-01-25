@@ -24,7 +24,7 @@ int ListenChannel::Open(const char *ip, short port) {
     return -1;
   }
   HLOG_INFO("listenChannel open succ\n");
-  return 0;
+  return Getfd();
 }
 
 int ListenChannel::HandleInput() {
@@ -36,8 +36,11 @@ int ListenChannel::HandleInput() {
   }
   HLOG_DEBUG("Accept fd=%d\n", fd);
   Channel *ch = HTcpChannelPool::GetInstance()->GetNewChannel();
+  if (ch == NULL) {
+    HLOG_WARN("TcpChannelpool full\n");
+    return -1;
+  }
   ch->Attach(fd);
-
   Hkq::GetInstance()->Add_event(fd, EVFILT_READ);
   HMonitChannelMgr::GetInstance()->Add(fd, ch);
   return 0;

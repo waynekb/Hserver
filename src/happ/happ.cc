@@ -27,9 +27,7 @@ HappBase* HappBase::GetApp() {
 int Happ::Run() {
   GetLogMod()->Init_log(HlogMod::H_LEVEL::DEBUG,
                         "/Users/waynebfhu/Documents/study/H3_server/logs/hsvr_log.log");
-  HLOG_DEBUG("\n");
   OnInit();
-  HLOG_DEBUG("\n");
   while (1) {
     if (m_stopflag) {
       break;
