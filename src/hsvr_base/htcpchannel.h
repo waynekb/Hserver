@@ -5,7 +5,7 @@
 #include "hchannel.h"
 #include "hsocket.h"
 
-namespace hsvr {
+namespace hsvr_base {
 
 class ListenChannel : public Singleton<ListenChannel>, public HChannel {
  public:
@@ -36,6 +36,6 @@ class HTcpChannel : public HChannel {
   virtual int HandleOutput();
 };
 
-}  // namespace hsvr
+}  // namespace hsvr_base
 
 #endif

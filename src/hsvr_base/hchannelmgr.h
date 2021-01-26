@@ -8,7 +8,7 @@
 
 #define MAX_CHANNEL_NUM 1000
 
-namespace hsvr {
+namespace hsvr_base {
 
 class HMonitChannelMgr : public Singleton<HMonitChannelMgr> {
  public:
@@ -55,6 +55,6 @@ class HTcpChannelPool : public Singleton<HTcpChannelPool>, public HChannelPool {
  private:
   HTcpChannel m_arry[MAX_CHANNEL_NUM];
 };
-}  // namespace hsvr
+}  // namespace hsvr_base
 
 #endif

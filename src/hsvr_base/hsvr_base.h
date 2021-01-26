@@ -6,7 +6,7 @@
 #include "hkq.h"
 
 using namespace happ;
-namespace hsvr {
+namespace hsvr_base {
 
 class HAppSvr : public Happ {
  public:
@@ -21,6 +21,6 @@ class HAppSvr : public Happ {
  private:
 };  // namespace happ
 
-}  // namespace hsvr
+}  // namespace hsvr_base
 
 #endif

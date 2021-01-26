@@ -18,7 +18,8 @@ aux_source_directory(. DIR_SRCS)
 # 添加子目录
 add_subdirectory(hlog)
 add_subdirectory(happ)
-add_subdirectory(hsvr)
+add_subdirectory(hsvr_base)
+add_subdirectory(proto/proto)
 #add_subdirectory(common)
 
 # 指定生成目标
@@ -26,6 +27,7 @@ add_executable(hserver main.cc)
 
 #添加头文件目录 相当于 -I
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(/usr/local/include/)
 
 # 添加链接库
 target_link_libraries(hserver LogMod HappMod HsvrMod)

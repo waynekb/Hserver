@@ -3,7 +3,7 @@
 #include <sys/socket.h>
 #include "hlog/hlog.h"
 
-using namespace hsvr;
+using namespace hsvr_base;
 #define MAX_LISTENER 100
 
 int HSocket::Open(int domain, int type) {

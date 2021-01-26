@@ -1,6 +1,6 @@
 #include "hchannelmgr.h"
 
-using namespace hsvr;
+using namespace hsvr_base;
 using std::make_pair;
 
 int HMonitChannelMgr::Add(int fd, HChannel* channel) {

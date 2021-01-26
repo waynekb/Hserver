@@ -2,9 +2,9 @@
 #include <unistd.h>
 #include "hchannelmgr.h"
 #include "hlog/hlog.h"
-#include "hsvr.h"
+#include "hsvr_base.h"
 
-using namespace hsvr;
+using namespace hsvr_base;
 #define MAX_EVENTS_NUM 1024
 
 int Hkq::Open_hkq() {

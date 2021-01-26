@@ -3,7 +3,7 @@
 #include <sys/types.h>
 #include "hchannelmgr.h"
 
-namespace hsvr {
+namespace hsvr_base {
 
 class Hkq : public Singleton<Hkq> {
  public:
@@ -22,5 +22,5 @@ class Hkq : public Singleton<Hkq> {
  private:
   int m_kq;
 };
-}  // namespace hsvr
+}  // namespace hsvr_base
 #endif

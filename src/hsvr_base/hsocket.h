@@ -5,7 +5,7 @@
 #include <unistd.h>
 #include "common/hobject.h"
 
-namespace hsvr {
+namespace hsvr_base {
 
 class HSocket : public Nocopyable {
  public:
@@ -46,5 +46,5 @@ class HSocket : public Nocopyable {
  private:
   int m_fd;
 };
-}  // namespace hsvr
+}  // namespace hsvr_base
 #endif

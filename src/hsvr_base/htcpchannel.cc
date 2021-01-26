@@ -7,7 +7,7 @@
 #define EVFILT_READ (-1)
 #define EVFILT_WRITE (-2)
 
-using namespace hsvr;
+using namespace hsvr_base;
 
 int ListenChannel::Open(const char *ip, short port) {
   m_addr.sin_family = AF_INET;

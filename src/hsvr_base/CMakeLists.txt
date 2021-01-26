@@ -6,3 +6,4 @@ add_library (HsvrMod ${DIR_LIB_SRCS})
 
 #添加头文件
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(/usr/local/include/)

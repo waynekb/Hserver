@@ -3,7 +3,7 @@
 #include "hsocket.h"
 #include "sys/types.h"
 
-namespace hsvr {
+namespace hsvr_base {
 
 class HChannel {
  public:
@@ -35,6 +35,6 @@ class HChannel {
   HSocket m_sock;
 };
 
-}  // namespace hsvr
+}  // namespace hsvr_base
 
 #endif

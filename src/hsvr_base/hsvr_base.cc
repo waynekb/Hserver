@@ -1,4 +1,4 @@
-#include "hsvr.h"
+#include "hsvr_base.h"
 #include <arpa/inet.h>
 #include <netinet/in.h>
 #include <stdlib.h>
@@ -7,7 +7,7 @@
 #include "hlog/hlog.h"
 #include "htcpchannel.h"
 
-using namespace hsvr;
+using namespace hsvr_base;
 
 int HAppSvr::OnUpdate() {
   return Hkq::GetInstance()->Loop_hkq();
