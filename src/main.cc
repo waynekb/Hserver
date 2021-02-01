@@ -2,7 +2,6 @@
 #include <string>
 #include "hlog/hlog.h"
 #include "hsvr_base/hsvr_base.h"
-#include "proto/proto/hmessage.pb.h"
 
 using namespace std;
 using namespace hsvr_base;
