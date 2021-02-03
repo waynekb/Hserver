@@ -1,5 +1,5 @@
-#ifndef HLOG_H
-#define HLOG_H
+#ifndef _HLOG_H
+#define _HLOG_H
 #include <stdio.h>
 #include <string>
 

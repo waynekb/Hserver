@@ -35,4 +35,4 @@ target_link_libraries(hserver LogMod HappMod HsvrMod MsgMod protobuf)
 
 add_executable(hclient client.cc)
 #add_executable(htest server.cc)
-#target_link_libraries(htest LogMod HappMod)
+target_link_libraries(hclient LogMod MsgMod protobuf)

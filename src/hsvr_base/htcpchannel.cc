@@ -2,6 +2,8 @@
 #include "hchannelmgr.h"
 #include "hkq.h"
 #include "hlog/hlog.h"
+#include "hmessage/hmessage.pb.h"
+#include "hsvr_base.h"
 #include "sys/socket.h"
 
 #define EVFILT_READ (-1)
@@ -61,9 +63,9 @@ void HTcpChannel::Close() {
 int HTcpChannel::HandleInput() {
   char buf[1024] = {0};
   // int size = m_sock.Recv(buf, 1024);
-  m_sock.Recv(buf, 1024);
-  HLOG_INFO("Recv:%s\n", buf);
-  return 0;
+  int size = m_sock.Recv(buf, 1024);
+  HAppSvrBase *happ = (HAppSvrBase *)HappBase::GetApp();
+  return happ->DispatchMsg(buf, size);
 }
 
 int HTcpChannel::HandleOutput() {

@@ -9,11 +9,11 @@
 
 using namespace hsvr_base;
 
-int HAppSvr::OnUpdate() {
+int HAppSvrBase::OnUpdate() {
   return Hkq::GetInstance()->Loop_hkq();
 }
 
-int HAppSvr::OnInit() {
+int HAppSvrBase::OnInit() {
   //打开tcp listen
   ListenChannel* listen = ListenChannel::GetInstance();
   const char* ip = "127.0.0.1";

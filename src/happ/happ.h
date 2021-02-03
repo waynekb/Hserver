@@ -9,7 +9,7 @@ class HappBase : public Nocopyable {
   HappBase();
   virtual ~HappBase();
 
-  HappBase* GetApp();
+  static HappBase* GetApp();
 };
 
 class Happ : public HappBase {

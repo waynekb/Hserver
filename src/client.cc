@@ -5,6 +5,7 @@
 #include <sys/errno.h>
 #include <sys/socket.h>
 #include <unistd.h>
+#include "hmessage/hmessage.pb.h"
 
 int main(int argc, char** argv) {
   sockaddr_in cliaddr;
@@ -18,13 +19,24 @@ int main(int argc, char** argv) {
     return -1;
   }
 
-  char buff[1024] = "ni hao ya dengqiyao!";
   int res = connect(clifd, (struct sockaddr*)&cliaddr, sizeof(struct sockaddr));
   printf("connect %d\n", res);
   if (res < 0) {
     perror("connect server fail:");
     return -1;
   }
+
+  HPR_SvrMsg msg;
+  HPR_MsgHead* head = msg.mutable_head();
+  HPR_MsgBody* body = msg.mutable_body();
+  head->set_cmd(1);
+  head->set_seq(2);
+  body->set_name("wayne");
+  body->set_age(18);
+
+  char buff[1024] = {0};
+  msg.SerializeToArray((void*)buff, 1024);
+
   printf("strlen %ld\n", strlen(buff));
   res = send(clifd, buff, strlen(buff), 0);
   printf("send len %d\n", res);
