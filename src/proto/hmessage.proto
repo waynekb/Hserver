@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+
+message HPR_MsgBody{
+  string name = 1;
+  uint32 age = 2;
+}
+
+message HPR_MsgHead {
+  uint32 cmd = 1;
+  uint64 seq = 2;
+}
+
+message HPR_SvrMsg {
+  HPR_MsgHead head = 1;
+  HPR_MsgBody body = 2;
+}
