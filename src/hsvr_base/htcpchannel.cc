@@ -62,7 +62,6 @@ void HTcpChannel::Close() {
 
 int HTcpChannel::HandleInput() {
   char buf[1024] = {0};
-  // int size = m_sock.Recv(buf, 1024);
   int size = m_sock.Recv(buf, 1024);
   HAppSvrBase *happ = (HAppSvrBase *)HappBase::GetApp();
   return happ->DispatchMsg(buf, size);

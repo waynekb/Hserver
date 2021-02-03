@@ -28,12 +28,11 @@ int main(int argc, char** argv) {
 
   HPR_SvrMsg msg;
   HPR_MsgHead* head = msg.mutable_head();
-  HPR_MsgBody* body = msg.mutable_body();
+  HPR_GetStudentInfoReq* body = msg.mutable_body()->mutable_get_student_info_req();
   head->set_cmd(1);
-  head->set_seq(2);
-  body->set_name("wayne");
-  body->set_age(18);
+  head->set_seqno(100001);
 
+  body->set_roleid(1);
   char buff[1024] = {0};
   msg.SerializeToArray((void*)buff, 1024);
 

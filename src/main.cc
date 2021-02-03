@@ -7,18 +7,17 @@
 using namespace std;
 using namespace hsvr_base;
 
-class Task : public HTaskImpl<HPR_SvrMsg> {
+class GetStudentInfoReq : public HTaskImpl<HPR_SvrMsg> {
  public:
   virtual int Start(const HPR_SvrMsg& msg) {
     const HPR_MsgHead& head = msg.head();
-    const HPR_MsgBody& body = msg.body();
-    HLOG_INFO("cmd=%d, seq=%d, name=%s, age=%d\n", head.cmd(), head.seq(), body.name().c_str(),
-              body.age());
+    const HPR_GetStudentInfoReq& reqbody = msg.body().get_student_info_req();
+    HLOG_INFO("cmd=%d, seq=%d, role_id=%d\n", head.cmd(), head.seqno(), reqbody.roleid());
     return 0;
   }
 };
 
-REGISTER_ASYNC_TASK(1, Task, "post_info");
+REGISTER_ASYNC_TASK(CMD_GETSTUDENTINFOREQ, GetStudentInfoReq, "get_student_info_req");
 
 class HApp : public HAppSvrImpl<HPR_SvrMsg> {};
 
