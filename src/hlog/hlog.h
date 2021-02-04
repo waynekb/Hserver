@@ -32,8 +32,7 @@ HlogMod* GetLogMod();
   do {                                                                                            \
     GetLogMod()->Print_log(HlogMod::H_LEVEL::DEBUG, "[%s:%d][DEBUG\t]: " fmt, __FILE__, __LINE__, \
                            ##__VA_ARGS__);                                                        \
-  } while (0)
-;
+  } while (0);
 
 #define HLOG_INFO(fmt, ...)                                                                     \
   do {                                                                                          \

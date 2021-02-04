@@ -57,9 +57,9 @@ extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table
 class HPR_GetStudentInfoReq;
 class HPR_GetStudentInfoReqDefaultTypeInternal;
 extern HPR_GetStudentInfoReqDefaultTypeInternal _HPR_GetStudentInfoReq_default_instance_;
-class HPR_GetStudentInfoRsp;
-class HPR_GetStudentInfoRspDefaultTypeInternal;
-extern HPR_GetStudentInfoRspDefaultTypeInternal _HPR_GetStudentInfoRsp_default_instance_;
+class HPR_GetStudentInfoRes;
+class HPR_GetStudentInfoResDefaultTypeInternal;
+extern HPR_GetStudentInfoResDefaultTypeInternal _HPR_GetStudentInfoRes_default_instance_;
 class HPR_GetStudentScoreReq;
 class HPR_GetStudentScoreReqDefaultTypeInternal;
 extern HPR_GetStudentScoreReqDefaultTypeInternal _HPR_GetStudentScoreReq_default_instance_;
@@ -77,7 +77,7 @@ class HPR_SvrMsgDefaultTypeInternal;
 extern HPR_SvrMsgDefaultTypeInternal _HPR_SvrMsg_default_instance_;
 PROTOBUF_NAMESPACE_OPEN
 template<> ::HPR_GetStudentInfoReq* Arena::CreateMaybeMessage<::HPR_GetStudentInfoReq>(Arena*);
-template<> ::HPR_GetStudentInfoRsp* Arena::CreateMaybeMessage<::HPR_GetStudentInfoRsp>(Arena*);
+template<> ::HPR_GetStudentInfoRes* Arena::CreateMaybeMessage<::HPR_GetStudentInfoRes>(Arena*);
 template<> ::HPR_GetStudentScoreReq* Arena::CreateMaybeMessage<::HPR_GetStudentScoreReq>(Arena*);
 template<> ::HPR_GetStudentScoreRes* Arena::CreateMaybeMessage<::HPR_GetStudentScoreRes>(Arena*);
 template<> ::HPR_MsgBody* Arena::CreateMaybeMessage<::HPR_MsgBody>(Arena*);
@@ -251,23 +251,23 @@ class HPR_GetStudentInfoReq PROTOBUF_FINAL :
 };
 // -------------------------------------------------------------------
 
-class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:HPR_GetStudentInfoRsp) */ {
+class HPR_GetStudentInfoRes PROTOBUF_FINAL :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:HPR_GetStudentInfoRes) */ {
  public:
-  inline HPR_GetStudentInfoRsp() : HPR_GetStudentInfoRsp(nullptr) {}
-  virtual ~HPR_GetStudentInfoRsp();
+  inline HPR_GetStudentInfoRes() : HPR_GetStudentInfoRes(nullptr) {}
+  virtual ~HPR_GetStudentInfoRes();
 
-  HPR_GetStudentInfoRsp(const HPR_GetStudentInfoRsp& from);
-  HPR_GetStudentInfoRsp(HPR_GetStudentInfoRsp&& from) noexcept
-    : HPR_GetStudentInfoRsp() {
+  HPR_GetStudentInfoRes(const HPR_GetStudentInfoRes& from);
+  HPR_GetStudentInfoRes(HPR_GetStudentInfoRes&& from) noexcept
+    : HPR_GetStudentInfoRes() {
     *this = ::std::move(from);
   }
 
-  inline HPR_GetStudentInfoRsp& operator=(const HPR_GetStudentInfoRsp& from) {
+  inline HPR_GetStudentInfoRes& operator=(const HPR_GetStudentInfoRes& from) {
     CopyFrom(from);
     return *this;
   }
-  inline HPR_GetStudentInfoRsp& operator=(HPR_GetStudentInfoRsp&& from) noexcept {
+  inline HPR_GetStudentInfoRes& operator=(HPR_GetStudentInfoRes&& from) noexcept {
     if (GetArena() == from.GetArena()) {
       if (this != &from) InternalSwap(&from);
     } else {
@@ -285,19 +285,19 @@ class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return GetMetadataStatic().reflection;
   }
-  static const HPR_GetStudentInfoRsp& default_instance();
+  static const HPR_GetStudentInfoRes& default_instance();
 
-  static inline const HPR_GetStudentInfoRsp* internal_default_instance() {
-    return reinterpret_cast<const HPR_GetStudentInfoRsp*>(
-               &_HPR_GetStudentInfoRsp_default_instance_);
+  static inline const HPR_GetStudentInfoRes* internal_default_instance() {
+    return reinterpret_cast<const HPR_GetStudentInfoRes*>(
+               &_HPR_GetStudentInfoRes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     1;
 
-  friend void swap(HPR_GetStudentInfoRsp& a, HPR_GetStudentInfoRsp& b) {
+  friend void swap(HPR_GetStudentInfoRes& a, HPR_GetStudentInfoRes& b) {
     a.Swap(&b);
   }
-  inline void Swap(HPR_GetStudentInfoRsp* other) {
+  inline void Swap(HPR_GetStudentInfoRes* other) {
     if (other == this) return;
     if (GetArena() == other->GetArena()) {
       InternalSwap(other);
@@ -305,7 +305,7 @@ class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(HPR_GetStudentInfoRsp* other) {
+  void UnsafeArenaSwap(HPR_GetStudentInfoRes* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetArena() == other->GetArena());
     InternalSwap(other);
@@ -313,17 +313,17 @@ class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
 
   // implements Message ----------------------------------------------
 
-  inline HPR_GetStudentInfoRsp* New() const final {
-    return CreateMaybeMessage<HPR_GetStudentInfoRsp>(nullptr);
+  inline HPR_GetStudentInfoRes* New() const final {
+    return CreateMaybeMessage<HPR_GetStudentInfoRes>(nullptr);
   }
 
-  HPR_GetStudentInfoRsp* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
-    return CreateMaybeMessage<HPR_GetStudentInfoRsp>(arena);
+  HPR_GetStudentInfoRes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena) const final {
+    return CreateMaybeMessage<HPR_GetStudentInfoRes>(arena);
   }
   void CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
   void MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) final;
-  void CopyFrom(const HPR_GetStudentInfoRsp& from);
-  void MergeFrom(const HPR_GetStudentInfoRsp& from);
+  void CopyFrom(const HPR_GetStudentInfoRes& from);
+  void MergeFrom(const HPR_GetStudentInfoRes& from);
   PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
   bool IsInitialized() const final;
 
@@ -337,13 +337,13 @@ class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
   inline void SharedCtor();
   inline void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(HPR_GetStudentInfoRsp* other);
+  void InternalSwap(HPR_GetStudentInfoRes* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "HPR_GetStudentInfoRsp";
+    return "HPR_GetStudentInfoRes";
   }
   protected:
-  explicit HPR_GetStudentInfoRsp(::PROTOBUF_NAMESPACE_ID::Arena* arena);
+  explicit HPR_GetStudentInfoRes(::PROTOBUF_NAMESPACE_ID::Arena* arena);
   private:
   static void ArenaDtor(void* object);
   inline void RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena* arena);
@@ -428,7 +428,7 @@ class HPR_GetStudentInfoRsp PROTOBUF_FINAL :
   void _internal_set_age(::PROTOBUF_NAMESPACE_ID::uint32 value);
   public:
 
-  // @@protoc_insertion_point(class_scope:HPR_GetStudentInfoRsp)
+  // @@protoc_insertion_point(class_scope:HPR_GetStudentInfoRes)
  private:
   class _Internal;
 
@@ -904,23 +904,23 @@ class HPR_MsgBody PROTOBUF_FINAL :
       ::HPR_GetStudentInfoReq* get_student_info_req);
   ::HPR_GetStudentInfoReq* unsafe_arena_release_get_student_info_req();
 
-  // .HPR_GetStudentInfoRsp get_student_info_res = 10001;
+  // .HPR_GetStudentInfoRes get_student_info_res = 10001;
   bool has_get_student_info_res() const;
   private:
   bool _internal_has_get_student_info_res() const;
   public:
   void clear_get_student_info_res();
-  const ::HPR_GetStudentInfoRsp& get_student_info_res() const;
-  ::HPR_GetStudentInfoRsp* release_get_student_info_res();
-  ::HPR_GetStudentInfoRsp* mutable_get_student_info_res();
-  void set_allocated_get_student_info_res(::HPR_GetStudentInfoRsp* get_student_info_res);
+  const ::HPR_GetStudentInfoRes& get_student_info_res() const;
+  ::HPR_GetStudentInfoRes* release_get_student_info_res();
+  ::HPR_GetStudentInfoRes* mutable_get_student_info_res();
+  void set_allocated_get_student_info_res(::HPR_GetStudentInfoRes* get_student_info_res);
   private:
-  const ::HPR_GetStudentInfoRsp& _internal_get_student_info_res() const;
-  ::HPR_GetStudentInfoRsp* _internal_mutable_get_student_info_res();
+  const ::HPR_GetStudentInfoRes& _internal_get_student_info_res() const;
+  ::HPR_GetStudentInfoRes* _internal_mutable_get_student_info_res();
   public:
   void unsafe_arena_set_allocated_get_student_info_res(
-      ::HPR_GetStudentInfoRsp* get_student_info_res);
-  ::HPR_GetStudentInfoRsp* unsafe_arena_release_get_student_info_res();
+      ::HPR_GetStudentInfoRes* get_student_info_res);
+  ::HPR_GetStudentInfoRes* unsafe_arena_release_get_student_info_res();
 
   // .HPR_GetStudentScoreReq get_student_score_req = 2;
   bool has_get_student_score_req() const;
@@ -977,7 +977,7 @@ class HPR_MsgBody PROTOBUF_FINAL :
   union MsgBodyOneofUnion {
     MsgBodyOneofUnion() {}
     ::HPR_GetStudentInfoReq* get_student_info_req_;
-    ::HPR_GetStudentInfoRsp* get_student_info_res_;
+    ::HPR_GetStudentInfoRes* get_student_info_res_;
     ::HPR_GetStudentScoreReq* get_student_score_req_;
     ::HPR_GetStudentScoreRes* get_student_score_res_;
   } MsgBody_oneof_;
@@ -1331,99 +1331,99 @@ inline void HPR_GetStudentInfoReq::set_roleid(::PROTOBUF_NAMESPACE_ID::uint32 va
 
 // -------------------------------------------------------------------
 
-// HPR_GetStudentInfoRsp
+// HPR_GetStudentInfoRes
 
 // int32 err_code = 1;
-inline void HPR_GetStudentInfoRsp::clear_err_code() {
+inline void HPR_GetStudentInfoRes::clear_err_code() {
   err_code_ = 0;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 HPR_GetStudentInfoRsp::_internal_err_code() const {
+inline ::PROTOBUF_NAMESPACE_ID::int32 HPR_GetStudentInfoRes::_internal_err_code() const {
   return err_code_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::int32 HPR_GetStudentInfoRsp::err_code() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRsp.err_code)
+inline ::PROTOBUF_NAMESPACE_ID::int32 HPR_GetStudentInfoRes::err_code() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.err_code)
   return _internal_err_code();
 }
-inline void HPR_GetStudentInfoRsp::_internal_set_err_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void HPR_GetStudentInfoRes::_internal_set_err_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
   
   err_code_ = value;
 }
-inline void HPR_GetStudentInfoRsp::set_err_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
+inline void HPR_GetStudentInfoRes::set_err_code(::PROTOBUF_NAMESPACE_ID::int32 value) {
   _internal_set_err_code(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRsp.err_code)
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.err_code)
 }
 
 // uint32 roleid = 2;
-inline void HPR_GetStudentInfoRsp::clear_roleid() {
+inline void HPR_GetStudentInfoRes::clear_roleid() {
   roleid_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRsp::_internal_roleid() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRes::_internal_roleid() const {
   return roleid_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRsp::roleid() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRsp.roleid)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRes::roleid() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.roleid)
   return _internal_roleid();
 }
-inline void HPR_GetStudentInfoRsp::_internal_set_roleid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HPR_GetStudentInfoRes::_internal_set_roleid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
   roleid_ = value;
 }
-inline void HPR_GetStudentInfoRsp::set_roleid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HPR_GetStudentInfoRes::set_roleid(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_roleid(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRsp.roleid)
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.roleid)
 }
 
 // string name = 3;
-inline void HPR_GetStudentInfoRsp::clear_name() {
+inline void HPR_GetStudentInfoRes::clear_name() {
   name_.ClearToEmpty();
 }
-inline const std::string& HPR_GetStudentInfoRsp::name() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRsp.name)
+inline const std::string& HPR_GetStudentInfoRes::name() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.name)
   return _internal_name();
 }
-inline void HPR_GetStudentInfoRsp::set_name(const std::string& value) {
+inline void HPR_GetStudentInfoRes::set_name(const std::string& value) {
   _internal_set_name(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRsp.name)
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.name)
 }
-inline std::string* HPR_GetStudentInfoRsp::mutable_name() {
-  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRsp.name)
+inline std::string* HPR_GetStudentInfoRes::mutable_name() {
+  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRes.name)
   return _internal_mutable_name();
 }
-inline const std::string& HPR_GetStudentInfoRsp::_internal_name() const {
+inline const std::string& HPR_GetStudentInfoRes::_internal_name() const {
   return name_.Get();
 }
-inline void HPR_GetStudentInfoRsp::_internal_set_name(const std::string& value) {
+inline void HPR_GetStudentInfoRes::_internal_set_name(const std::string& value) {
   
   name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void HPR_GetStudentInfoRsp::set_name(std::string&& value) {
+inline void HPR_GetStudentInfoRes::set_name(std::string&& value) {
   
   name_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRsp.name)
+  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRes.name)
 }
-inline void HPR_GetStudentInfoRsp::set_name(const char* value) {
+inline void HPR_GetStudentInfoRes::set_name(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRsp.name)
+  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRes.name)
 }
-inline void HPR_GetStudentInfoRsp::set_name(const char* value,
+inline void HPR_GetStudentInfoRes::set_name(const char* value,
     size_t size) {
   
   name_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRsp.name)
+  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRes.name)
 }
-inline std::string* HPR_GetStudentInfoRsp::_internal_mutable_name() {
+inline std::string* HPR_GetStudentInfoRes::_internal_mutable_name() {
   
   return name_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* HPR_GetStudentInfoRsp::release_name() {
-  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRsp.name)
+inline std::string* HPR_GetStudentInfoRes::release_name() {
+  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRes.name)
   return name_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void HPR_GetStudentInfoRsp::set_allocated_name(std::string* name) {
+inline void HPR_GetStudentInfoRes::set_allocated_name(std::string* name) {
   if (name != nullptr) {
     
   } else {
@@ -1431,80 +1431,80 @@ inline void HPR_GetStudentInfoRsp::set_allocated_name(std::string* name) {
   }
   name_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), name,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRsp.name)
+  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRes.name)
 }
 
 // uint32 age = 4;
-inline void HPR_GetStudentInfoRsp::clear_age() {
+inline void HPR_GetStudentInfoRes::clear_age() {
   age_ = 0u;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRsp::_internal_age() const {
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRes::_internal_age() const {
   return age_;
 }
-inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRsp::age() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRsp.age)
+inline ::PROTOBUF_NAMESPACE_ID::uint32 HPR_GetStudentInfoRes::age() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.age)
   return _internal_age();
 }
-inline void HPR_GetStudentInfoRsp::_internal_set_age(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HPR_GetStudentInfoRes::_internal_set_age(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   
   age_ = value;
 }
-inline void HPR_GetStudentInfoRsp::set_age(::PROTOBUF_NAMESPACE_ID::uint32 value) {
+inline void HPR_GetStudentInfoRes::set_age(::PROTOBUF_NAMESPACE_ID::uint32 value) {
   _internal_set_age(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRsp.age)
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.age)
 }
 
 // string college = 5;
-inline void HPR_GetStudentInfoRsp::clear_college() {
+inline void HPR_GetStudentInfoRes::clear_college() {
   college_.ClearToEmpty();
 }
-inline const std::string& HPR_GetStudentInfoRsp::college() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRsp.college)
+inline const std::string& HPR_GetStudentInfoRes::college() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.college)
   return _internal_college();
 }
-inline void HPR_GetStudentInfoRsp::set_college(const std::string& value) {
+inline void HPR_GetStudentInfoRes::set_college(const std::string& value) {
   _internal_set_college(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRsp.college)
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.college)
 }
-inline std::string* HPR_GetStudentInfoRsp::mutable_college() {
-  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRsp.college)
+inline std::string* HPR_GetStudentInfoRes::mutable_college() {
+  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRes.college)
   return _internal_mutable_college();
 }
-inline const std::string& HPR_GetStudentInfoRsp::_internal_college() const {
+inline const std::string& HPR_GetStudentInfoRes::_internal_college() const {
   return college_.Get();
 }
-inline void HPR_GetStudentInfoRsp::_internal_set_college(const std::string& value) {
+inline void HPR_GetStudentInfoRes::_internal_set_college(const std::string& value) {
   
   college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void HPR_GetStudentInfoRsp::set_college(std::string&& value) {
+inline void HPR_GetStudentInfoRes::set_college(std::string&& value) {
   
   college_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRsp.college)
+  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRes.college)
 }
-inline void HPR_GetStudentInfoRsp::set_college(const char* value) {
+inline void HPR_GetStudentInfoRes::set_college(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRsp.college)
+  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRes.college)
 }
-inline void HPR_GetStudentInfoRsp::set_college(const char* value,
+inline void HPR_GetStudentInfoRes::set_college(const char* value,
     size_t size) {
   
   college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRsp.college)
+  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRes.college)
 }
-inline std::string* HPR_GetStudentInfoRsp::_internal_mutable_college() {
+inline std::string* HPR_GetStudentInfoRes::_internal_mutable_college() {
   
   return college_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* HPR_GetStudentInfoRsp::release_college() {
-  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRsp.college)
+inline std::string* HPR_GetStudentInfoRes::release_college() {
+  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRes.college)
   return college_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void HPR_GetStudentInfoRsp::set_allocated_college(std::string* college) {
+inline void HPR_GetStudentInfoRes::set_allocated_college(std::string* college) {
   if (college != nullptr) {
     
   } else {
@@ -1512,7 +1512,7 @@ inline void HPR_GetStudentInfoRsp::set_allocated_college(std::string* college) {
   }
   college_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), college,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRsp.college)
+  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRes.college)
 }
 
 // -------------------------------------------------------------------
@@ -1720,7 +1720,7 @@ inline ::HPR_GetStudentInfoReq* HPR_MsgBody::mutable_get_student_info_req() {
   return _internal_mutable_get_student_info_req();
 }
 
-// .HPR_GetStudentInfoRsp get_student_info_res = 10001;
+// .HPR_GetStudentInfoRes get_student_info_res = 10001;
 inline bool HPR_MsgBody::_internal_has_get_student_info_res() const {
   return MsgBody_oneof_case() == kGetStudentInfoRes;
 }
@@ -1738,11 +1738,11 @@ inline void HPR_MsgBody::clear_get_student_info_res() {
     clear_has_MsgBody_oneof();
   }
 }
-inline ::HPR_GetStudentInfoRsp* HPR_MsgBody::release_get_student_info_res() {
+inline ::HPR_GetStudentInfoRes* HPR_MsgBody::release_get_student_info_res() {
   // @@protoc_insertion_point(field_release:HPR_MsgBody.get_student_info_res)
   if (_internal_has_get_student_info_res()) {
     clear_has_MsgBody_oneof();
-      ::HPR_GetStudentInfoRsp* temp = MsgBody_oneof_.get_student_info_res_;
+      ::HPR_GetStudentInfoRes* temp = MsgBody_oneof_.get_student_info_res_;
     if (GetArena() != nullptr) {
       temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
     }
@@ -1752,27 +1752,27 @@ inline ::HPR_GetStudentInfoRsp* HPR_MsgBody::release_get_student_info_res() {
     return nullptr;
   }
 }
-inline const ::HPR_GetStudentInfoRsp& HPR_MsgBody::_internal_get_student_info_res() const {
+inline const ::HPR_GetStudentInfoRes& HPR_MsgBody::_internal_get_student_info_res() const {
   return _internal_has_get_student_info_res()
       ? *MsgBody_oneof_.get_student_info_res_
-      : reinterpret_cast< ::HPR_GetStudentInfoRsp&>(::_HPR_GetStudentInfoRsp_default_instance_);
+      : reinterpret_cast< ::HPR_GetStudentInfoRes&>(::_HPR_GetStudentInfoRes_default_instance_);
 }
-inline const ::HPR_GetStudentInfoRsp& HPR_MsgBody::get_student_info_res() const {
+inline const ::HPR_GetStudentInfoRes& HPR_MsgBody::get_student_info_res() const {
   // @@protoc_insertion_point(field_get:HPR_MsgBody.get_student_info_res)
   return _internal_get_student_info_res();
 }
-inline ::HPR_GetStudentInfoRsp* HPR_MsgBody::unsafe_arena_release_get_student_info_res() {
+inline ::HPR_GetStudentInfoRes* HPR_MsgBody::unsafe_arena_release_get_student_info_res() {
   // @@protoc_insertion_point(field_unsafe_arena_release:HPR_MsgBody.get_student_info_res)
   if (_internal_has_get_student_info_res()) {
     clear_has_MsgBody_oneof();
-    ::HPR_GetStudentInfoRsp* temp = MsgBody_oneof_.get_student_info_res_;
+    ::HPR_GetStudentInfoRes* temp = MsgBody_oneof_.get_student_info_res_;
     MsgBody_oneof_.get_student_info_res_ = nullptr;
     return temp;
   } else {
     return nullptr;
   }
 }
-inline void HPR_MsgBody::unsafe_arena_set_allocated_get_student_info_res(::HPR_GetStudentInfoRsp* get_student_info_res) {
+inline void HPR_MsgBody::unsafe_arena_set_allocated_get_student_info_res(::HPR_GetStudentInfoRes* get_student_info_res) {
   clear_MsgBody_oneof();
   if (get_student_info_res) {
     set_has_get_student_info_res();
@@ -1780,15 +1780,15 @@ inline void HPR_MsgBody::unsafe_arena_set_allocated_get_student_info_res(::HPR_G
   }
   // @@protoc_insertion_point(field_unsafe_arena_set_allocated:HPR_MsgBody.get_student_info_res)
 }
-inline ::HPR_GetStudentInfoRsp* HPR_MsgBody::_internal_mutable_get_student_info_res() {
+inline ::HPR_GetStudentInfoRes* HPR_MsgBody::_internal_mutable_get_student_info_res() {
   if (!_internal_has_get_student_info_res()) {
     clear_MsgBody_oneof();
     set_has_get_student_info_res();
-    MsgBody_oneof_.get_student_info_res_ = CreateMaybeMessage< ::HPR_GetStudentInfoRsp >(GetArena());
+    MsgBody_oneof_.get_student_info_res_ = CreateMaybeMessage< ::HPR_GetStudentInfoRes >(GetArena());
   }
   return MsgBody_oneof_.get_student_info_res_;
 }
-inline ::HPR_GetStudentInfoRsp* HPR_MsgBody::mutable_get_student_info_res() {
+inline ::HPR_GetStudentInfoRes* HPR_MsgBody::mutable_get_student_info_res() {
   // @@protoc_insertion_point(field_mutable:HPR_MsgBody.get_student_info_res)
   return _internal_mutable_get_student_info_res();
 }

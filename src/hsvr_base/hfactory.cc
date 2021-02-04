@@ -21,7 +21,7 @@ void HTaskFactory::ReleaseTask(HTaskBase* task) {
 
 HTaskCreator* HTaskFactory::GetTaskCreator(uint32_t cmd) {
   if (cmd < m_mincmd || cmd > m_maxcmd) {
-    HLOG_ERR("no creator cmd\n", cmd);
+    HLOG_ERR("no creator cmd %d min=%d, max=%d\n", cmd, m_mincmd, m_maxcmd);
     return NULL;
   }
   HTASKCREATORINFOMAP::iterator it = m_creatormap.find(cmd);

@@ -36,9 +36,21 @@ int main(int argc, char** argv) {
   char buff[1024] = {0};
   msg.SerializeToArray((void*)buff, 1024);
 
+  msg.mutable_head()->CopyFrom(msg.head());
   printf("strlen %ld\n", strlen(buff));
   res = send(clifd, buff, strlen(buff), 0);
   printf("send len %d\n", res);
+
+  printf("\n*******************************\n");
+
+  res = recv(clifd, buff, 1024, 0);
+
+  msg.ParseFromArray(buff, res);
+
+  const HPR_GetStudentInfoRes& info = msg.body().get_student_info_res();
+
+  printf("student:%d name:%s age=%d from %s\n\n", info.roleid(), info.name().c_str(), info.age(),
+         info.college().c_str());
   close(clifd);
   return 0;
 }

@@ -14,7 +14,7 @@ message HPR_GetStudentInfoReq{
   uint32 roleid = 1;
 }
 
-message HPR_GetStudentInfoRsp{
+message HPR_GetStudentInfoRes{
   int32 err_code = 1;
   uint32 roleid = 2;
   string name = 3;
@@ -37,7 +37,7 @@ message HPR_GetStudentScoreRes{
 message HPR_MsgBody{
   oneof MsgBody_oneof{
     HPR_GetStudentInfoReq get_student_info_req = 1;
-    HPR_GetStudentInfoRsp get_student_info_res = 10001;
+    HPR_GetStudentInfoRes get_student_info_res = 10001;
     HPR_GetStudentScoreReq get_student_score_req = 2;
     HPR_GetStudentScoreRes get_student_score_res = 10002;
   }

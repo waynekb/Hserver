@@ -18,20 +18,23 @@ HChannel* HMonitChannelMgr::Find(int fd) {
 }
 
 HChannel* HChannelPool::GetNewChannel() {
-  if (m_list.size() <= 0) {
+  if (m_freelist.size() <= 0) {
     return NULL;
   }
-  HChannel* ch = m_list.front();
-  m_list.pop_front();
+  HChannel* ch = m_freelist.front();
+  m_freelist.pop_front();
   return ch;
 }
 
-void HChannelPool::AddChannel(HChannel* channel) {
-  m_list.push_back(channel);
+void HChannelPool::AddFreeChannel(HChannel* channel) {
+  m_freelist.push_back(channel);
+}
+int HChannelPool::GetFreeChannelNum() {
+  return m_freelist.size();
 }
 
 void HTcpChannelPool::InitPool() {
   for (int i = 0; i < MAX_CHANNEL_NUM; i++) {
-    AddChannel((HChannel*)&m_arry[i]);
+    AddFreeChannel((HChannel*)&m_arry[i]);
   }
 }

@@ -6,7 +6,7 @@
 #include "common/hobject.h"
 #include "htcpchannel.h"
 
-#define MAX_CHANNEL_NUM 1000
+#define MAX_CHANNEL_NUM 10000;
 
 namespace hsvr_base {
 
@@ -35,12 +35,14 @@ class HChannelPool {
   }
 
   HChannel* GetNewChannel();
-  void AddChannel(HChannel* channel);
+  void AddFreeChannel(HChannel* channel);
+
+  int GetFreeChannelNum();
 
  private:
   typedef std::list<HChannel*> ChannelList;
 
-  ChannelList m_list;
+  ChannelList m_freelist;
 };
 
 class HTcpChannelPool : public Singleton<HTcpChannelPool>, public HChannelPool {

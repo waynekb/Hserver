@@ -19,7 +19,7 @@ class ListenChannel : public Singleton<ListenChannel>, public HChannel {
   virtual void Close();
 
   virtual int HandleInput();
-  virtual int HandleOutput();
+  virtual int HandleOutput(const void *data, size_t size, HChannelContext *ctx);
 };
 
 class HTcpChannel : public HChannel {
@@ -32,8 +32,10 @@ class HTcpChannel : public HChannel {
 
   virtual void Close();
 
+  int FreeHandle();
+
   virtual int HandleInput();
-  virtual int HandleOutput();
+  virtual int HandleOutput(const void *data, size_t size, HChannelContext *ctx);
 };
 
 }  // namespace hsvr_base

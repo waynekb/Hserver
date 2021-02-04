@@ -43,6 +43,8 @@ int ListenChannel::HandleInput() {
     return -1;
   }
   ch->Attach(fd);
+  ch->SetSockaddr((sockaddr_in *)&addr);
+
   Hkq::GetInstance()->Add_event(fd, EVFILT_READ);
   HMonitChannelMgr::GetInstance()->Add(fd, ch);
   return 0;
@@ -52,7 +54,7 @@ void ListenChannel::Close() {
   m_sock.Close();
 }
 
-int ListenChannel::HandleOutput() {
+int ListenChannel::HandleOutput(const void *data, size_t size, HChannelContext *ctx) {
   return 0;
 }
 
@@ -63,10 +65,30 @@ void HTcpChannel::Close() {
 int HTcpChannel::HandleInput() {
   char buf[1024] = {0};
   int size = m_sock.Recv(buf, 1024);
+  if (size <= 0) {
+    FreeHandle();
+    return -1;
+  }
   HAppSvrBase *happ = (HAppSvrBase *)HappBase::GetApp();
-  return happ->DispatchMsg(buf, size);
+  HChannelContext ctx(this, TCP_CHANNEL);
+  return happ->DispatchMsg(buf, size, &ctx);
 }
 
-int HTcpChannel::HandleOutput() {
+int HTcpChannel::HandleOutput(const void *data, size_t size, HChannelContext *ctx) {
+  int ret = m_sock.Send(data, size);
+  if (ret != size) {
+    HLOG_WARN("tcpchannel send msg not complete size=%d ret=%d\n", size, ret);
+    return -1;
+  }
+  return 0;
+}
+
+int HTcpChannel::FreeHandle() {
+  int fd = m_sock.Getfd();
+  HMonitChannelMgr::GetInstance()->Del(fd);  // 从kqueue中删除
+  HTcpChannelPool::GetInstance()->AddFreeChannel(this);
+  Hkq::GetInstance()->Del_event(fd, EVFILT_READ);
+
+  close(fd);
   return 0;
 }

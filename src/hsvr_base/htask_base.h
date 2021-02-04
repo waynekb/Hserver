@@ -2,6 +2,9 @@
 #define _HTASK_BASE_H
 #include <stddef.h>
 #include <stdint.h>
+#include "hchannel.h"
+#include "hlog/hlog.h"
+#include "string.h"
 
 namespace hsvr_base {
 class HTaskBase {
@@ -10,8 +13,9 @@ class HTaskBase {
   }
   virtual ~HTaskBase(){};
 
-  virtual int _Start(const void* data, size_t size) = 0;
+  virtual int _Start(const void* data, size_t size, HChannelContext* ctx) = 0;
 
+  virtual int SendMsg() = 0;
   void SetCmd(uint32_t cmd);
   uint32_t GetCmd();
 
@@ -22,6 +26,8 @@ class HTaskBase {
  protected:
   uint32_t m_cmd;
   uint32_t m_taskid;
+
+  HChannelContext m_channel_ctx;
 };
 
 template <typename MsgObj>
@@ -31,13 +37,29 @@ class HTaskImpl : public HTaskBase {
   virtual ~HTaskImpl(){};
   virtual int Start(const MsgObj& msg) = 0;
 
-  virtual int _Start(const void* data, size_t size) {
+  virtual int _Start(const void* data, size_t size, HChannelContext* ctx) {
     MsgObj msg;
     msg.ParseFromArray(data, size);
-    return Start(msg);
+    m_channel_ctx.m_channel = ctx->m_channel;
+    m_channel_ctx.m_channel_type = ctx->m_channel_type;
+    m_channel_ctx.tcp = ctx->tcp;
+    m_res.mutable_head()->CopyFrom(msg.head());  //返回消息头文件默认和接收消息一致
+    int ret = Start(msg);
+    return ret;
+  }
+
+  virtual int SendMsg() {
+    char buf[1024] = {0};
+    int size = m_res.SerializeToArray((void*)buf, 1024);
+    return m_channel_ctx.m_channel->HandleOutput(buf, strlen(buf), &m_channel_ctx);
+  }
+
+  MsgObj* GetResponse() {
+    return &m_res;
   }
 
  private:
+  MsgObj m_res;
 };
 
 #define REGISTER_ASYNC_TASK(cmd, class, name) \
