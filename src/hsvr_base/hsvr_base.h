@@ -51,6 +51,7 @@ int HAppSvrImpl<MsgObj>::DispatchMsg(const void* buf, size_t size, HChannelConte
   }
   int ret = task->_Start(buf, size, ctx);
 
+  factory->ReleaseTask(task);
   // if (task->) HTaskMgr::GetInstance()->PendTask(task);
   return ret;
 }

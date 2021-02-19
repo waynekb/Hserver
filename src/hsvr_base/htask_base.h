@@ -30,6 +30,9 @@ class HTaskBase {
   HChannelContext m_channel_ctx;
 };
 
+/**使用模板，方便以后更改消息类型
+ * 开发者只需要在实现子类的时候，传入新的消息类型即可。但是新的消息必须包含cmd和seqno等字段。
+ * **/
 template <typename MsgObj>
 class HTaskImpl : public HTaskBase {
  public:
@@ -40,17 +43,20 @@ class HTaskImpl : public HTaskBase {
   virtual int _Start(const void* data, size_t size, HChannelContext* ctx) {
     MsgObj msg;
     msg.ParseFromArray(data, size);
+
     m_channel_ctx.m_channel = ctx->m_channel;
     m_channel_ctx.m_channel_type = ctx->m_channel_type;
     m_channel_ctx.tcp = ctx->tcp;
-    m_res.mutable_head()->CopyFrom(msg.head());  //返回消息头文件默认和接收消息一致
+
+    m_res.mutable_head()->CopyFrom(msg.head());  //返回消息头信息默认和接收消息一致
+
     int ret = Start(msg);
     return ret;
   }
 
   virtual int SendMsg() {
     char buf[1024] = {0};
-    int size = m_res.SerializeToArray((void*)buf, 1024);
+    m_res.SerializeToArray((void*)buf, 1024);
     return m_channel_ctx.m_channel->HandleOutput(buf, strlen(buf), &m_channel_ctx);
   }
 

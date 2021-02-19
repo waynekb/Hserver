@@ -21,16 +21,18 @@ add_subdirectory(hmessage)
 
 #添加头文件目录 相当于 -I
 include_directories(${CMAKE_SOURCE_DIR})
+include_directories(/user/local/mysql/include/)
 include_directories(/usr/local/include/)
 
+#添加链接库查询目录 相当于-L
 link_directories(/usr/local/protobuf/lib)
+link_directories(/usr/local/mysql/lib)
 # 指定生成目标
 add_executable(hserver main.cc)
 
-
 # 添加链接库
 
-target_link_libraries(hserver LogMod HappMod HsvrMod MsgMod protobuf)
+target_link_libraries(hserver LogMod HappMod HsvrMod MsgMod protobuf mysqlclient)
 #target_link_libraries(hserver MsgMod protobuf)
 
 add_executable(hclient client.cc)

@@ -6,7 +6,7 @@
 #include "common/hobject.h"
 #include "htcpchannel.h"
 
-#define MAX_CHANNEL_NUM 10000;
+#define MAX_CHANNEL_NUM 10000
 
 namespace hsvr_base {
 
