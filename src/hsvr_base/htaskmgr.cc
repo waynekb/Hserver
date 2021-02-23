@@ -51,7 +51,7 @@ void HTaskMgr::ReleaseAllTask() {
 
 void HTaskMgr::ReleaseTask(uint32_t taskid) {
   HTASKBASEMAPIT it = m_taskmap.find(taskid);
-  if (it != m_taskmap.end()) {
+  if (it == m_taskmap.end()) {
     return;
   }
   m_taskmap.erase(it);

@@ -7,7 +7,7 @@ namespace hsvr_base {
 class HSvrTask : public HTaskImpl<HPR_SvrMsg>, public HMysqlCallback {
  public:
   virtual bool IsComplete() {
-    return HMysqlCallback::CallbackIsComplete();
+    return CallbackIsComplete();
   }
 
   virtual int MysqlResponse(HSqlCallTask* calltask) {
