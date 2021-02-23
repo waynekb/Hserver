@@ -37,7 +37,6 @@ int Happ::Run() {
     }
     OnUpdate();
     OnTick();
-    sleep(1);
   }
   return 0;
 }

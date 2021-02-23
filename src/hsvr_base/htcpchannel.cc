@@ -17,12 +17,15 @@ int ListenChannel::Open(const char *ip, short port) {
   m_addr.sin_addr.s_addr = inet_addr(ip);
 
   if (m_sock.Open(AF_INET, SOCK_STREAM) == -1) {
+    HLOG_ERR("listenChannel open fail\n");
     return -1;
   }
   if (m_sock.Bind((sockaddr *)&m_addr) == -1) {
+    HLOG_ERR("listenChannel bind fail\n");
     return -1;
   }
   if (m_sock.Listen() == -1) {
+    HLOG_ERR("listenChannel listen fail\n");
     return -1;
   }
   HLOG_INFO("listenChannel open succ\n");
@@ -44,7 +47,6 @@ int ListenChannel::HandleInput() {
   }
   ch->Attach(fd);
   ch->SetSockaddr((sockaddr_in *)&addr);
-
   Hkq::GetInstance()->Add_event(fd, EVFILT_READ);
   HMonitChannelMgr::GetInstance()->Add(fd, ch);
   return 0;
@@ -85,9 +87,9 @@ int HTcpChannel::HandleOutput(const void *data, size_t size, HChannelContext *ct
 
 int HTcpChannel::FreeHandle() {
   int fd = m_sock.Getfd();
-  HMonitChannelMgr::GetInstance()->Del(fd);  // 从kqueue中删除
+  HMonitChannelMgr::GetInstance()->Del(fd);
   HTcpChannelPool::GetInstance()->AddFreeChannel(this);
-  Hkq::GetInstance()->Del_event(fd, EVFILT_READ);
+  Hkq::GetInstance()->Del_event(fd, EVFILT_READ);  // 从kqueue中删除
 
   close(fd);
   return 0;

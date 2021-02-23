@@ -1,9 +1,16 @@
 # 查找当前目录下的所有源文件
 # 并将名称保存到 DIR_LIB_SRCS 变量
 aux_source_directory(. DIR_LIB_SRCS)
+
 # 生成链接库
+
+MESSAGE(TATUS "${DIR_LIB_SRCS}")
 add_library (HsvrMod ${DIR_LIB_SRCS})
+
 
 #添加头文件
 include_directories(${CMAKE_SOURCE_DIR})
 include_directories(/usr/local/include/)
+include_directories(/user/local/mysql/include/)
+
+link_directories(/usr/local/mysql/lib)

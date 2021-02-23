@@ -44,13 +44,17 @@ int main(int argc, char** argv) {
   printf("\n*******************************\n");
 
   res = recv(clifd, buff, 1024, 0);
+  printf("res = %d\n", res);
+  if (res <= 0) {
+    return 0;
+  }
 
   msg.ParseFromArray(buff, res);
 
   const HPR_GetStudentInfoRes& info = msg.body().get_student_info_res();
 
-  printf("student:%d name:%s age=%d from %s\n\n", info.roleid(), info.name().c_str(), info.age(),
-         info.college().c_str());
+  printf("student:%d name:%s age=%d subtime %s\n\n", info.roleid(), info.name().c_str(), info.age(),
+         info.date().c_str());
   close(clifd);
   return 0;
 }

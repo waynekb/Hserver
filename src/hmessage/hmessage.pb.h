@@ -364,7 +364,7 @@ class HPR_GetStudentInfoRes PROTOBUF_FINAL :
 
   enum : int {
     kNameFieldNumber = 3,
-    kCollegeFieldNumber = 5,
+    kDateFieldNumber = 5,
     kErrCodeFieldNumber = 1,
     kRoleidFieldNumber = 2,
     kAgeFieldNumber = 4,
@@ -385,20 +385,20 @@ class HPR_GetStudentInfoRes PROTOBUF_FINAL :
   std::string* _internal_mutable_name();
   public:
 
-  // string college = 5;
-  void clear_college();
-  const std::string& college() const;
-  void set_college(const std::string& value);
-  void set_college(std::string&& value);
-  void set_college(const char* value);
-  void set_college(const char* value, size_t size);
-  std::string* mutable_college();
-  std::string* release_college();
-  void set_allocated_college(std::string* college);
+  // string date = 5;
+  void clear_date();
+  const std::string& date() const;
+  void set_date(const std::string& value);
+  void set_date(std::string&& value);
+  void set_date(const char* value);
+  void set_date(const char* value, size_t size);
+  std::string* mutable_date();
+  std::string* release_date();
+  void set_allocated_date(std::string* date);
   private:
-  const std::string& _internal_college() const;
-  void _internal_set_college(const std::string& value);
-  std::string* _internal_mutable_college();
+  const std::string& _internal_date() const;
+  void _internal_set_date(const std::string& value);
+  std::string* _internal_mutable_date();
   public:
 
   // int32 err_code = 1;
@@ -436,7 +436,7 @@ class HPR_GetStudentInfoRes PROTOBUF_FINAL :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr name_;
-  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr college_;
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr date_;
   ::PROTOBUF_NAMESPACE_ID::int32 err_code_;
   ::PROTOBUF_NAMESPACE_ID::uint32 roleid_;
   ::PROTOBUF_NAMESPACE_ID::uint32 age_;
@@ -1454,65 +1454,65 @@ inline void HPR_GetStudentInfoRes::set_age(::PROTOBUF_NAMESPACE_ID::uint32 value
   // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.age)
 }
 
-// string college = 5;
-inline void HPR_GetStudentInfoRes::clear_college() {
-  college_.ClearToEmpty();
+// string date = 5;
+inline void HPR_GetStudentInfoRes::clear_date() {
+  date_.ClearToEmpty();
 }
-inline const std::string& HPR_GetStudentInfoRes::college() const {
-  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.college)
-  return _internal_college();
+inline const std::string& HPR_GetStudentInfoRes::date() const {
+  // @@protoc_insertion_point(field_get:HPR_GetStudentInfoRes.date)
+  return _internal_date();
 }
-inline void HPR_GetStudentInfoRes::set_college(const std::string& value) {
-  _internal_set_college(value);
-  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.college)
+inline void HPR_GetStudentInfoRes::set_date(const std::string& value) {
+  _internal_set_date(value);
+  // @@protoc_insertion_point(field_set:HPR_GetStudentInfoRes.date)
 }
-inline std::string* HPR_GetStudentInfoRes::mutable_college() {
-  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRes.college)
-  return _internal_mutable_college();
+inline std::string* HPR_GetStudentInfoRes::mutable_date() {
+  // @@protoc_insertion_point(field_mutable:HPR_GetStudentInfoRes.date)
+  return _internal_mutable_date();
 }
-inline const std::string& HPR_GetStudentInfoRes::_internal_college() const {
-  return college_.Get();
+inline const std::string& HPR_GetStudentInfoRes::_internal_date() const {
+  return date_.Get();
 }
-inline void HPR_GetStudentInfoRes::_internal_set_college(const std::string& value) {
+inline void HPR_GetStudentInfoRes::_internal_set_date(const std::string& value) {
   
-  college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
+  date_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, value, GetArena());
 }
-inline void HPR_GetStudentInfoRes::set_college(std::string&& value) {
+inline void HPR_GetStudentInfoRes::set_date(std::string&& value) {
   
-  college_.Set(
+  date_.Set(
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::move(value), GetArena());
-  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRes.college)
+  // @@protoc_insertion_point(field_set_rvalue:HPR_GetStudentInfoRes.date)
 }
-inline void HPR_GetStudentInfoRes::set_college(const char* value) {
+inline void HPR_GetStudentInfoRes::set_date(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
-  college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
-  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRes.college)
+  date_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(value), GetArena());
+  // @@protoc_insertion_point(field_set_char:HPR_GetStudentInfoRes.date)
 }
-inline void HPR_GetStudentInfoRes::set_college(const char* value,
+inline void HPR_GetStudentInfoRes::set_date(const char* value,
     size_t size) {
   
-  college_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
+  date_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, ::std::string(
       reinterpret_cast<const char*>(value), size), GetArena());
-  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRes.college)
+  // @@protoc_insertion_point(field_set_pointer:HPR_GetStudentInfoRes.date)
 }
-inline std::string* HPR_GetStudentInfoRes::_internal_mutable_college() {
+inline std::string* HPR_GetStudentInfoRes::_internal_mutable_date() {
   
-  return college_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
+  return date_.Mutable(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, GetArena());
 }
-inline std::string* HPR_GetStudentInfoRes::release_college() {
-  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRes.college)
-  return college_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+inline std::string* HPR_GetStudentInfoRes::release_date() {
+  // @@protoc_insertion_point(field_release:HPR_GetStudentInfoRes.date)
+  return date_.Release(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
 }
-inline void HPR_GetStudentInfoRes::set_allocated_college(std::string* college) {
-  if (college != nullptr) {
+inline void HPR_GetStudentInfoRes::set_allocated_date(std::string* date) {
+  if (date != nullptr) {
     
   } else {
     
   }
-  college_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), college,
+  date_.SetAllocated(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), date,
       GetArena());
-  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRes.college)
+  // @@protoc_insertion_point(field_set_allocated:HPR_GetStudentInfoRes.date)
 }
 
 // -------------------------------------------------------------------

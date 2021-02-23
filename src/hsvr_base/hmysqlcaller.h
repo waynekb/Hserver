@@ -1,48 +1,84 @@
 #ifndef _HMYSQLCALLER_H
 #define _HMYSQLCALLER_H
+#include <mutex>
+#include <queue>
 #include <vector>
+#include "common/hobject.h"
+#include "hasynctask.h"
+#include "hthreadpool.h"
+#include "mysql/mysql.h"
 
-#define MAXHCALLNUM 1000
+#define MAXHCALLNUM 10
 namespace hsvr_base {
 
-class HChannel;
+struct HSqlCallTask;
 
-class HCall {
+class HMysqlCallback : public HMysqlCallbackBase {
  public:
-  HCall() : m_taskid(0), m_callid(0), m_channel(NULL){};
-  virtual ~HCall(){};
-  void SetHCall(HChannel* channel, const char* sql);
+  HMysqlCallback() : call_num(0){};
+  ~HMysqlCallback(){};
+  virtual bool CallbackIsComplete();
+
+  virtual int MysqlResponse(HSqlCallTask* calltask) = 0;
+  virtual int DoMysqlResponse(HSqlCallTask* calltask);
+
+  void Addcall() {
+    call_num++;
+  }
+
+  void Subcall() {
+    call_num--;
+  }
+
+  int Getcallnum() {
+    return call_num;
+  }
 
  private:
-  char m_sql[10240];
-  uint32_t m_taskid;
-  uint32_t m_callid;
-  HChannel* m_channel;
-};
-
-class HCallMgr {
- public:
-  HCallMgr();
-  ~HCallMgr(){};
-
-  int AddCall(HChannel* channel, const char* sql);
+  int call_num;
 
  private:
-  typedef std::vector<HCall> HCALLVECTOR;
-  HCALLVECTOR m_callvec;
-  int m_write;
-  int m_read;
 };
 
-class HMysqlCaller {
+struct HSqlCallTask {
  public:
-  HMysqlCaller(){};
+  char sql[256];
+  char calltitle[64];
+  uint32_t taskid;
+  HMysqlCallback* sqlcallbase;
+  MYSQL_RES* result;
+};
+
+class HMysqlCaller : public Singleton<HMysqlCaller>, public HLoopThreadPool, public HAsyncTaskbase {
+ public:
+  HMysqlCaller() : m_initflag(false), m_queue(NULL), m_mysql(NULL){};
   virtual ~HMysqlCaller(){};
 
-  int AddCall(HChannel* channel, const char* sql);
+  int AddCall(HMysqlCallback* sqlbase, uint32_t taskid, const char* sql);
+  virtual int DoResponse();
+
+  int Start(int num = 8);
+  int Stop();
+  virtual int DoEvent(void* call);
 
  private:
-  HCallMgr m_callmgr;
+  int InitMysqlCon();
+  int CloseMysqlCon();
+  void InitFreeList();
+
+  HSqlCallTask m_callarray[MAXHCALLNUM];
+  bool m_initflag;
+
+  typedef std::queue<HSqlCallTask*> SQLCALLTASKQUEUE;
+  typedef SQLCALLTASKQUEUE* SQLCALLTASKQUEUEPTR;
+
+  SQLCALLTASKQUEUE m_queue1;
+  SQLCALLTASKQUEUE m_queue2;
+
+  SQLCALLTASKQUEUEPTR m_queue;
+
+  std::mutex m_resmtx;
+  MYSQL* m_mysql;
 };
 
 }  // namespace hsvr_base

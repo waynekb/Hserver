@@ -1,8 +1,13 @@
 #include "hfactory.h"
 #include "hlog/hlog.h"
+#include "htask_base.h"
 
 using namespace hsvr_base;
 using std::make_pair;
+
+void HTaskCreator::Free(HTaskBase* task) {
+  delete task;
+}
 
 HTaskBase* HTaskFactory::CreateTask(uint32_t cmd) {
   HTaskCreator* creator = GetTaskCreator(cmd);

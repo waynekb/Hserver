@@ -17,12 +17,18 @@ int Hkq::Open_hkq() {
 
 int Hkq::Loop_hkq() {
   struct kevent events[MAX_EVENTS_NUM];
-  int ev_num = kevent(m_kq, NULL, 0, events, MAX_EVENTS_NUM, NULL);
+  timespec time;
+  time.tv_nsec = 500;
+  int ev_num = kevent(m_kq, NULL, 0, events, MAX_EVENTS_NUM, &time);
+  // HLOG_DEBUG("ev_num = %d\n", ev_num);
   for (int i = 0; i < ev_num; i++) {
     struct kevent event = events[i];
     int ready_fd = event.ident;
     HMonitChannelMgr* mgr = HMonitChannelMgr::GetInstance();
-    mgr->Find(ready_fd)->HandleInput();
+    HChannel* channel = mgr->Find(ready_fd);
+    if (channel) {
+      channel->HandleInput();
+    }
   }
   return ev_num;
 }

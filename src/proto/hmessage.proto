@@ -19,7 +19,7 @@ message HPR_GetStudentInfoRes{
   uint32 roleid = 2;
   string name = 3;
   uint32 age = 4;
-  string college = 5;
+  string date = 5;
 }
 
 message HPR_GetStudentScoreReq{

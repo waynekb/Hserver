@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include <stdint.h>
 #include "hchannel.h"
+#include "hfactory.h"
 #include "hlog/hlog.h"
 #include "string.h"
 
@@ -14,6 +15,8 @@ class HTaskBase {
   virtual ~HTaskBase(){};
 
   virtual int _Start(const void* data, size_t size, HChannelContext* ctx) = 0;
+
+  virtual bool IsComplete() = 0;
 
   virtual int SendMsg() = 0;
   void SetCmd(uint32_t cmd);
@@ -40,10 +43,13 @@ class HTaskImpl : public HTaskBase {
   virtual ~HTaskImpl(){};
   virtual int Start(const MsgObj& msg) = 0;
 
+  virtual bool IsComplete() {
+    return true;
+  };
+
   virtual int _Start(const void* data, size_t size, HChannelContext* ctx) {
     MsgObj msg;
     msg.ParseFromArray(data, size);
-
     m_channel_ctx.m_channel = ctx->m_channel;
     m_channel_ctx.m_channel_type = ctx->m_channel_type;
     m_channel_ctx.tcp = ctx->tcp;
@@ -69,8 +75,7 @@ class HTaskImpl : public HTaskBase {
 };
 
 #define REGISTER_ASYNC_TASK(cmd, class, name) \
-  static HTaskRegister<cmd, class> class##_register_(name);
-
+  static hsvr_base::HTaskRegister<cmd, class> class##_register_(name);
 }  // namespace hsvr_base
 
 #endif

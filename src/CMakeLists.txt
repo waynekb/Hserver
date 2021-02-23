@@ -28,7 +28,7 @@ include_directories(/usr/local/include/)
 link_directories(/usr/local/protobuf/lib)
 link_directories(/usr/local/mysql/lib)
 # 指定生成目标
-add_executable(hserver main.cc)
+add_executable(hserver main.cc test_task.cc)
 
 # 添加链接库
 

@@ -3,17 +3,16 @@
 #include <map>
 #include "common/hobject.h"
 #include "hlog/hlog.h"
-#include "htask_base.h"
 
 namespace hsvr_base {
+
+class HTaskBase;
 
 class HTaskCreator {
  public:
   virtual ~HTaskCreator(){};
-  virtual HTaskBase* Create() {
-    return NULL;
-  };
-  virtual void Free(HTaskBase* task) = 0;
+  virtual HTaskBase* Create() = 0;
+  virtual void Free(HTaskBase* task);
 };
 
 template <typename tasktype>
@@ -21,9 +20,6 @@ class HSimpleTaskCreator : public HTaskCreator {
  public:
   HTaskBase* Create() {
     return new tasktype;
-  }
-  void Free(HTaskBase* task) {
-    delete task;
   }
 };
 
@@ -57,15 +53,15 @@ class HTaskFactory : public Singleton<HTaskFactory> {
 
   void ClearCreatorMap();
 
- private:
   typedef std::map<uint32_t, HTaskCreatorInfo*> HTASKCREATORINFOMAP;
+  HTASKCREATORINFOMAP m_creatormap;
 
+ private:
   uint32_t GenTaskId() {
     static uint32_t tid_seed = 0;
     return ++tid_seed;
   }
 
-  HTASKCREATORINFOMAP m_creatormap;
   uint32_t m_mincmd;
   uint32_t m_maxcmd;
 };
