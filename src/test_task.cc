@@ -7,7 +7,7 @@ namespace hsvr_base {
 class HSvrTask : public HTaskImpl<HPR_SvrMsg>, public HMysqlCallback {
  public:
   virtual bool IsComplete() {
-    return CallbackIsComplete();
+    return HMysqlCallback::CallbackIsComplete();
   }
 
   virtual int MysqlResponse(HSqlCallTask* calltask) {
@@ -20,24 +20,12 @@ class HSvrTask : public HTaskImpl<HPR_SvrMsg>, public HMysqlCallback {
 class GetStudentInfoReq : public HSvrTask {
  public:
   int Start(const HPR_SvrMsg& msg) {
-    // const HPR_MsgHead& head = msg.head();
     const HPR_GetStudentInfoReq& reqbody = msg.body().get_student_info_req();
     char sql[128] = {0};
     int role_id = reqbody.roleid();
     snprintf(sql, sizeof(sql), "select * from student where stu_id=%d", role_id);
     HMysqlCaller::GetInstance()->AddCall(this, m_taskid, (const char*)sql);
     return 0;
-    /*
-    HLOG_INFO("cmd=%d, seq=%d, role_id=%d\n", head.cmd(), head.seqno(), reqbody.roleid());
-    HPR_GetStudentInfoRes* res = GetResponse()->mutable_body()->mutable_get_student_info_res();
-    res->set_err_code(0);
-    res->set_name("wayne");
-    res->set_roleid(1024326);
-    res->set_age(18);
-    res->set_date("usetc");
-    SendMsg();
-    return 0;
-    */
   }
 
   int str2int(const char* str) {
