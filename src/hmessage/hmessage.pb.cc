@@ -15,15 +15,20 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_GetStudentInfoReq_hmessage_2eproto;
-extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_GetStudentInfoRes_hmessage_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_HPR_GetStudentInfoRes_hmessage_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_GetStudentScoreReq_hmessage_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_GetStudentScoreRes_hmessage_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<4> scc_info_HPR_MsgBody_hmessage_2eproto;
 extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_MsgHead_hmessage_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_hmessage_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_StudentInfo_hmessage_2eproto;
 class HPR_GetStudentInfoReqDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<HPR_GetStudentInfoReq> _instance;
 } _HPR_GetStudentInfoReq_default_instance_;
+class HPR_StudentInfoDefaultTypeInternal {
+ public:
+  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<HPR_StudentInfo> _instance;
+} _HPR_StudentInfo_default_instance_;
 class HPR_GetStudentInfoResDefaultTypeInternal {
  public:
   ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<HPR_GetStudentInfoRes> _instance;
@@ -71,8 +76,9 @@ static void InitDefaultsscc_info_HPR_GetStudentInfoRes_hmessage_2eproto() {
   }
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_GetStudentInfoRes_hmessage_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_HPR_GetStudentInfoRes_hmessage_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_HPR_GetStudentInfoRes_hmessage_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_HPR_GetStudentInfoRes_hmessage_2eproto}, {
+      &scc_info_HPR_StudentInfo_hmessage_2eproto.base,}};
 
 static void InitDefaultsscc_info_HPR_GetStudentScoreReq_hmessage_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -130,6 +136,19 @@ static void InitDefaultsscc_info_HPR_MsgHead_hmessage_2eproto() {
 ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_MsgHead_hmessage_2eproto =
     {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_HPR_MsgHead_hmessage_2eproto}, {}};
 
+static void InitDefaultsscc_info_HPR_StudentInfo_hmessage_2eproto() {
+  GOOGLE_PROTOBUF_VERIFY_VERSION;
+
+  {
+    void* ptr = &::_HPR_StudentInfo_default_instance_;
+    new (ptr) ::HPR_StudentInfo();
+    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
+  }
+}
+
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_HPR_StudentInfo_hmessage_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_HPR_StudentInfo_hmessage_2eproto}, {}};
+
 static void InitDefaultsscc_info_HPR_SvrMsg_hmessage_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
@@ -145,7 +164,7 @@ static void InitDefaultsscc_info_HPR_SvrMsg_hmessage_2eproto() {
       &scc_info_HPR_MsgHead_hmessage_2eproto.base,
       &scc_info_HPR_MsgBody_hmessage_2eproto.base,}};
 
-static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hmessage_2eproto[7];
+static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_hmessage_2eproto[8];
 static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_hmessage_2eproto[1];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_hmessage_2eproto = nullptr;
 
@@ -155,17 +174,24 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmessage_2eproto::offsets[] PR
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoReq, roleid_),
+  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoReq, roleids_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, roleid_),
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, name_),
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, age_),
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, grade_),
+  PROTOBUF_FIELD_OFFSET(::HPR_StudentInfo, date_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, err_code_),
-  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, roleid_),
-  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, name_),
-  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, age_),
-  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, date_),
+  PROTOBUF_FIELD_OFFSET(::HPR_GetStudentInfoRes, students_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::HPR_GetStudentScoreReq, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -209,16 +235,18 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_hmessage_2eproto::offsets[] PR
 };
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::HPR_GetStudentInfoReq)},
-  { 6, -1, sizeof(::HPR_GetStudentInfoRes)},
-  { 16, -1, sizeof(::HPR_GetStudentScoreReq)},
-  { 22, -1, sizeof(::HPR_GetStudentScoreRes)},
-  { 32, -1, sizeof(::HPR_MsgBody)},
-  { 42, -1, sizeof(::HPR_MsgHead)},
-  { 49, -1, sizeof(::HPR_SvrMsg)},
+  { 6, -1, sizeof(::HPR_StudentInfo)},
+  { 16, -1, sizeof(::HPR_GetStudentInfoRes)},
+  { 23, -1, sizeof(::HPR_GetStudentScoreReq)},
+  { 29, -1, sizeof(::HPR_GetStudentScoreRes)},
+  { 39, -1, sizeof(::HPR_MsgBody)},
+  { 49, -1, sizeof(::HPR_MsgHead)},
+  { 56, -1, sizeof(::HPR_SvrMsg)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_HPR_GetStudentInfoReq_default_instance_),
+  reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_HPR_StudentInfo_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_HPR_GetStudentInfoRes_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_HPR_GetStudentScoreReq_default_instance_),
   reinterpret_cast<const ::PROTOBUF_NAMESPACE_ID::Message*>(&::_HPR_GetStudentScoreRes_default_instance_),
@@ -228,45 +256,48 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 };
 
 const char descriptor_table_protodef_hmessage_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\016hmessage.proto\"\'\n\025HPR_GetStudentInfoRe"
-  "q\022\016\n\006roleid\030\001 \001(\r\"b\n\025HPR_GetStudentInfoR"
-  "es\022\020\n\010err_code\030\001 \001(\005\022\016\n\006roleid\030\002 \001(\r\022\014\n\004"
-  "name\030\003 \001(\t\022\013\n\003age\030\004 \001(\r\022\014\n\004date\030\005 \001(\t\"(\n"
-  "\026HPR_GetStudentScoreReq\022\016\n\006roleid\030\001 \001(\r\""
-  "j\n\026HPR_GetStudentScoreRes\022\020\n\010err_code\030\001 "
-  "\001(\005\022\r\n\005yuwen\030\002 \001(\r\022\014\n\004math\030\003 \001(\r\022\017\n\007engl"
-  "ish\030\004 \001(\r\022\020\n\010physical\030\005 \001(\r\"\204\002\n\013HPR_MsgB"
-  "ody\0226\n\024get_student_info_req\030\001 \001(\0132\026.HPR_"
-  "GetStudentInfoReqH\000\0227\n\024get_student_info_"
-  "res\030\221N \001(\0132\026.HPR_GetStudentInfoResH\000\0228\n\025"
-  "get_student_score_req\030\002 \001(\0132\027.HPR_GetStu"
-  "dentScoreReqH\000\0229\n\025get_student_score_res\030"
-  "\222N \001(\0132\027.HPR_GetStudentScoreResH\000B\017\n\rMsg"
-  "Body_oneof\")\n\013HPR_MsgHead\022\013\n\003cmd\030\001 \001(\r\022\r"
-  "\n\005seqno\030\002 \001(\004\"D\n\nHPR_SvrMsg\022\032\n\004head\030\001 \001("
-  "\0132\014.HPR_MsgHead\022\032\n\004body\030\002 \001(\0132\014.HPR_MsgB"
-  "ody*\216\001\n\014HPR_MsgCmdID\022\016\n\nCMD_COMMON\020\000\022\031\n\025"
-  "CMD_GETSTUDENTINFOREQ\020\001\022\032\n\025CMD_GETSTUDEN"
-  "TINFORES\020\221N\022\032\n\026CMD_GETSTUDENTSCOREREQ\020\002\022"
-  "\033\n\026CMD_GETSTUDENTSCORERES\020\222Nb\006proto3"
+  "\n\016hmessage.proto\"(\n\025HPR_GetStudentInfoRe"
+  "q\022\017\n\007roleids\030\001 \003(\r\"Y\n\017HPR_StudentInfo\022\016\n"
+  "\006roleid\030\001 \001(\r\022\014\n\004name\030\002 \001(\t\022\013\n\003age\030\003 \001(\r"
+  "\022\r\n\005grade\030\004 \001(\r\022\014\n\004date\030\005 \001(\t\"M\n\025HPR_Get"
+  "StudentInfoRes\022\020\n\010err_code\030\001 \001(\005\022\"\n\010stud"
+  "ents\030\002 \003(\0132\020.HPR_StudentInfo\"(\n\026HPR_GetS"
+  "tudentScoreReq\022\016\n\006roleid\030\001 \001(\r\"j\n\026HPR_Ge"
+  "tStudentScoreRes\022\020\n\010err_code\030\001 \001(\005\022\r\n\005yu"
+  "wen\030\002 \001(\r\022\014\n\004math\030\003 \001(\r\022\017\n\007english\030\004 \001(\r"
+  "\022\020\n\010physical\030\005 \001(\r\"\204\002\n\013HPR_MsgBody\0226\n\024ge"
+  "t_student_info_req\030\001 \001(\0132\026.HPR_GetStuden"
+  "tInfoReqH\000\0227\n\024get_student_info_res\030\221N \001("
+  "\0132\026.HPR_GetStudentInfoResH\000\0228\n\025get_stude"
+  "nt_score_req\030\002 \001(\0132\027.HPR_GetStudentScore"
+  "ReqH\000\0229\n\025get_student_score_res\030\222N \001(\0132\027."
+  "HPR_GetStudentScoreResH\000B\017\n\rMsgBody_oneo"
+  "f\")\n\013HPR_MsgHead\022\013\n\003cmd\030\001 \001(\r\022\r\n\005seqno\030\002"
+  " \001(\004\"D\n\nHPR_SvrMsg\022\032\n\004head\030\001 \001(\0132\014.HPR_M"
+  "sgHead\022\032\n\004body\030\002 \001(\0132\014.HPR_MsgBody*\216\001\n\014H"
+  "PR_MsgCmdID\022\016\n\nCMD_COMMON\020\000\022\031\n\025CMD_GETST"
+  "UDENTINFOREQ\020\001\022\032\n\025CMD_GETSTUDENTINFORES\020"
+  "\221N\022\032\n\026CMD_GETSTUDENTSCOREREQ\020\002\022\033\n\026CMD_GE"
+  "TSTUDENTSCORERES\020\222Nb\006proto3"
   ;
 static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_hmessage_2eproto_deps[1] = {
 };
-static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hmessage_2eproto_sccs[7] = {
+static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_hmessage_2eproto_sccs[8] = {
   &scc_info_HPR_GetStudentInfoReq_hmessage_2eproto.base,
   &scc_info_HPR_GetStudentInfoRes_hmessage_2eproto.base,
   &scc_info_HPR_GetStudentScoreReq_hmessage_2eproto.base,
   &scc_info_HPR_GetStudentScoreRes_hmessage_2eproto.base,
   &scc_info_HPR_MsgBody_hmessage_2eproto.base,
   &scc_info_HPR_MsgHead_hmessage_2eproto.base,
+  &scc_info_HPR_StudentInfo_hmessage_2eproto.base,
   &scc_info_HPR_SvrMsg_hmessage_2eproto.base,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_hmessage_2eproto_once;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_hmessage_2eproto = {
-  false, false, descriptor_table_protodef_hmessage_2eproto, "hmessage.proto", 836,
-  &descriptor_table_hmessage_2eproto_once, descriptor_table_hmessage_2eproto_sccs, descriptor_table_hmessage_2eproto_deps, 7, 0,
+  false, false, descriptor_table_protodef_hmessage_2eproto, "hmessage.proto", 907,
+  &descriptor_table_hmessage_2eproto_once, descriptor_table_hmessage_2eproto_sccs, descriptor_table_hmessage_2eproto_deps, 8, 0,
   schemas, file_default_instances, TableStruct_hmessage_2eproto::offsets,
-  file_level_metadata_hmessage_2eproto, 7, file_level_enum_descriptors_hmessage_2eproto, file_level_service_descriptors_hmessage_2eproto,
+  file_level_metadata_hmessage_2eproto, 8, file_level_enum_descriptors_hmessage_2eproto, file_level_service_descriptors_hmessage_2eproto,
 };
 
 // Force running AddDescriptors() at dynamic initialization time.
@@ -296,20 +327,20 @@ class HPR_GetStudentInfoReq::_Internal {
 };
 
 HPR_GetStudentInfoReq::HPR_GetStudentInfoReq(::PROTOBUF_NAMESPACE_ID::Arena* arena)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  roleids_(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
   // @@protoc_insertion_point(arena_constructor:HPR_GetStudentInfoReq)
 }
 HPR_GetStudentInfoReq::HPR_GetStudentInfoReq(const HPR_GetStudentInfoReq& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      roleids_(from.roleids_) {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  roleid_ = from.roleid_;
   // @@protoc_insertion_point(copy_constructor:HPR_GetStudentInfoReq)
 }
 
 void HPR_GetStudentInfoReq::SharedCtor() {
-  roleid_ = 0u;
 }
 
 HPR_GetStudentInfoReq::~HPR_GetStudentInfoReq() {
@@ -343,7 +374,7 @@ void HPR_GetStudentInfoReq::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  roleid_ = 0u;
+  roleids_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -354,10 +385,13 @@ const char* HPR_GetStudentInfoReq::_InternalParse(const char* ptr, ::PROTOBUF_NA
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // uint32 roleid = 1;
+      // repeated uint32 roleids = 1;
       case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
-          roleid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_roleids(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8) {
+          _internal_add_roleids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -389,10 +423,13 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // uint32 roleid = 1;
-  if (this->roleid() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_roleid(), target);
+  // repeated uint32 roleids = 1;
+  {
+    int byte_size = _roleids_cached_byte_size_.load(std::memory_order_relaxed);
+    if (byte_size > 0) {
+      target = stream->WriteUInt32Packed(
+          1, _internal_roleids(), byte_size, target);
+    }
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -411,11 +448,19 @@ size_t HPR_GetStudentInfoReq::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // uint32 roleid = 1;
-  if (this->roleid() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_roleid());
+  // repeated uint32 roleids = 1;
+  {
+    size_t data_size = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      UInt32Size(this->roleids_);
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _roleids_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -449,9 +494,7 @@ void HPR_GetStudentInfoReq::MergeFrom(const HPR_GetStudentInfoReq& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.roleid() != 0) {
-    _internal_set_roleid(from._internal_roleid());
-  }
+  roleids_.MergeFrom(from.roleids_);
 }
 
 void HPR_GetStudentInfoReq::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
@@ -475,7 +518,7 @@ bool HPR_GetStudentInfoReq::IsInitialized() const {
 void HPR_GetStudentInfoReq::InternalSwap(HPR_GetStudentInfoReq* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  swap(roleid_, other->roleid_);
+  roleids_.InternalSwap(&other->roleids_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata HPR_GetStudentInfoReq::GetMetadata() const {
@@ -485,17 +528,17 @@ void HPR_GetStudentInfoReq::InternalSwap(HPR_GetStudentInfoReq* other) {
 
 // ===================================================================
 
-class HPR_GetStudentInfoRes::_Internal {
+class HPR_StudentInfo::_Internal {
  public:
 };
 
-HPR_GetStudentInfoRes::HPR_GetStudentInfoRes(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+HPR_StudentInfo::HPR_StudentInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena) {
   SharedCtor();
   RegisterArenaDtor(arena);
-  // @@protoc_insertion_point(arena_constructor:HPR_GetStudentInfoRes)
+  // @@protoc_insertion_point(arena_constructor:HPR_StudentInfo)
 }
-HPR_GetStudentInfoRes::HPR_GetStudentInfoRes(const HPR_GetStudentInfoRes& from)
+HPR_StudentInfo::HPR_StudentInfo(const HPR_StudentInfo& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
@@ -508,20 +551,334 @@ HPR_GetStudentInfoRes::HPR_GetStudentInfoRes(const HPR_GetStudentInfoRes& from)
     date_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_date(), 
       GetArena());
   }
-  ::memcpy(&err_code_, &from.err_code_,
-    static_cast<size_t>(reinterpret_cast<char*>(&age_) -
-    reinterpret_cast<char*>(&err_code_)) + sizeof(age_));
+  ::memcpy(&roleid_, &from.roleid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
+    reinterpret_cast<char*>(&roleid_)) + sizeof(grade_));
+  // @@protoc_insertion_point(copy_constructor:HPR_StudentInfo)
+}
+
+void HPR_StudentInfo::SharedCtor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_HPR_StudentInfo_hmessage_2eproto.base);
+  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  date_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
+      reinterpret_cast<char*>(&roleid_) - reinterpret_cast<char*>(this)),
+      0, static_cast<size_t>(reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&roleid_)) + sizeof(grade_));
+}
+
+HPR_StudentInfo::~HPR_StudentInfo() {
+  // @@protoc_insertion_point(destructor:HPR_StudentInfo)
+  SharedDtor();
+  _internal_metadata_.Delete<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+void HPR_StudentInfo::SharedDtor() {
+  GOOGLE_DCHECK(GetArena() == nullptr);
+  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  date_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+}
+
+void HPR_StudentInfo::ArenaDtor(void* object) {
+  HPR_StudentInfo* _this = reinterpret_cast< HPR_StudentInfo* >(object);
+  (void)_this;
+}
+void HPR_StudentInfo::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
+}
+void HPR_StudentInfo::SetCachedSize(int size) const {
+  _cached_size_.Set(size);
+}
+const HPR_StudentInfo& HPR_StudentInfo::default_instance() {
+  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_HPR_StudentInfo_hmessage_2eproto.base);
+  return *internal_default_instance();
+}
+
+
+void HPR_StudentInfo::Clear() {
+// @@protoc_insertion_point(message_clear_start:HPR_StudentInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  name_.ClearToEmpty();
+  date_.ClearToEmpty();
+  ::memset(&roleid_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&grade_) -
+      reinterpret_cast<char*>(&roleid_)) + sizeof(grade_));
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* HPR_StudentInfo::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    ::PROTOBUF_NAMESPACE_ID::uint32 tag;
+    ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
+    CHK_(ptr);
+    switch (tag >> 3) {
+      // uint32 roleid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 8)) {
+          roleid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string name = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          auto str = _internal_mutable_name();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "HPR_StudentInfo.name"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 age = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 24)) {
+          age_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // uint32 grade = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
+          grade_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // string date = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          auto str = _internal_mutable_date();
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "HPR_StudentInfo.date"));
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      default: {
+      handle_unusual:
+        if ((tag & 7) == 4 || tag == 0) {
+          ctx->SetLastTag(tag);
+          goto success;
+        }
+        ptr = UnknownFieldParse(tag,
+            _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+            ptr, ctx);
+        CHK_(ptr != nullptr);
+        continue;
+      }
+    }  // switch
+  }  // while
+success:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto success;
+#undef CHK_
+}
+
+::PROTOBUF_NAMESPACE_ID::uint8* HPR_StudentInfo::_InternalSerialize(
+    ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:HPR_StudentInfo)
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // uint32 roleid = 1;
+  if (this->roleid() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(1, this->_internal_roleid(), target);
+  }
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "HPR_StudentInfo.name");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_name(), target);
+  }
+
+  // uint32 age = 3;
+  if (this->age() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(3, this->_internal_age(), target);
+  }
+
+  // uint32 grade = 4;
+  if (this->grade() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_grade(), target);
+  }
+
+  // string date = 5;
+  if (this->date().size() > 0) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
+      this->_internal_date().data(), static_cast<int>(this->_internal_date().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
+      "HPR_StudentInfo.date");
+    target = stream->WriteStringMaybeAliased(
+        5, this->_internal_date(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:HPR_StudentInfo)
+  return target;
+}
+
+size_t HPR_StudentInfo::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:HPR_StudentInfo)
+  size_t total_size = 0;
+
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // string name = 2;
+  if (this->name().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_name());
+  }
+
+  // string date = 5;
+  if (this->date().size() > 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+        this->_internal_date());
+  }
+
+  // uint32 roleid = 1;
+  if (this->roleid() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_roleid());
+  }
+
+  // uint32 age = 3;
+  if (this->age() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_age());
+  }
+
+  // uint32 grade = 4;
+  if (this->grade() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
+        this->_internal_grade());
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    return ::PROTOBUF_NAMESPACE_ID::internal::ComputeUnknownFieldsSize(
+        _internal_metadata_, total_size, &_cached_size_);
+  }
+  int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
+  SetCachedSize(cached_size);
+  return total_size;
+}
+
+void HPR_StudentInfo::MergeFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:HPR_StudentInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  const HPR_StudentInfo* source =
+      ::PROTOBUF_NAMESPACE_ID::DynamicCastToGenerated<HPR_StudentInfo>(
+          &from);
+  if (source == nullptr) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:HPR_StudentInfo)
+    ::PROTOBUF_NAMESPACE_ID::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:HPR_StudentInfo)
+    MergeFrom(*source);
+  }
+}
+
+void HPR_StudentInfo::MergeFrom(const HPR_StudentInfo& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:HPR_StudentInfo)
+  GOOGLE_DCHECK_NE(&from, this);
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from.name().size() > 0) {
+    _internal_set_name(from._internal_name());
+  }
+  if (from.date().size() > 0) {
+    _internal_set_date(from._internal_date());
+  }
+  if (from.roleid() != 0) {
+    _internal_set_roleid(from._internal_roleid());
+  }
+  if (from.age() != 0) {
+    _internal_set_age(from._internal_age());
+  }
+  if (from.grade() != 0) {
+    _internal_set_grade(from._internal_grade());
+  }
+}
+
+void HPR_StudentInfo::CopyFrom(const ::PROTOBUF_NAMESPACE_ID::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:HPR_StudentInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void HPR_StudentInfo::CopyFrom(const HPR_StudentInfo& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:HPR_StudentInfo)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool HPR_StudentInfo::IsInitialized() const {
+  return true;
+}
+
+void HPR_StudentInfo::InternalSwap(HPR_StudentInfo* other) {
+  using std::swap;
+  _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
+  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  date_.Swap(&other->date_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(HPR_StudentInfo, grade_)
+      + sizeof(HPR_StudentInfo::grade_)
+      - PROTOBUF_FIELD_OFFSET(HPR_StudentInfo, roleid_)>(
+          reinterpret_cast<char*>(&roleid_),
+          reinterpret_cast<char*>(&other->roleid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata HPR_StudentInfo::GetMetadata() const {
+  return GetMetadataStatic();
+}
+
+
+// ===================================================================
+
+class HPR_GetStudentInfoRes::_Internal {
+ public:
+};
+
+HPR_GetStudentInfoRes::HPR_GetStudentInfoRes(::PROTOBUF_NAMESPACE_ID::Arena* arena)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena),
+  students_(arena) {
+  SharedCtor();
+  RegisterArenaDtor(arena);
+  // @@protoc_insertion_point(arena_constructor:HPR_GetStudentInfoRes)
+}
+HPR_GetStudentInfoRes::HPR_GetStudentInfoRes(const HPR_GetStudentInfoRes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message(),
+      students_(from.students_) {
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  err_code_ = from.err_code_;
   // @@protoc_insertion_point(copy_constructor:HPR_GetStudentInfoRes)
 }
 
 void HPR_GetStudentInfoRes::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_HPR_GetStudentInfoRes_hmessage_2eproto.base);
-  name_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  date_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
-      reinterpret_cast<char*>(&err_code_) - reinterpret_cast<char*>(this)),
-      0, static_cast<size_t>(reinterpret_cast<char*>(&age_) -
-      reinterpret_cast<char*>(&err_code_)) + sizeof(age_));
+  err_code_ = 0;
 }
 
 HPR_GetStudentInfoRes::~HPR_GetStudentInfoRes() {
@@ -532,8 +889,6 @@ HPR_GetStudentInfoRes::~HPR_GetStudentInfoRes() {
 
 void HPR_GetStudentInfoRes::SharedDtor() {
   GOOGLE_DCHECK(GetArena() == nullptr);
-  name_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  date_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
 void HPR_GetStudentInfoRes::ArenaDtor(void* object) {
@@ -557,11 +912,8 @@ void HPR_GetStudentInfoRes::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  name_.ClearToEmpty();
-  date_.ClearToEmpty();
-  ::memset(&err_code_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&age_) -
-      reinterpret_cast<char*>(&err_code_)) + sizeof(age_));
+  students_.Clear();
+  err_code_ = 0;
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
@@ -579,36 +931,16 @@ const char* HPR_GetStudentInfoRes::_InternalParse(const char* ptr, ::PROTOBUF_NA
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
-      // uint32 roleid = 2;
+      // repeated .HPR_StudentInfo students = 2;
       case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
-          roleid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string name = 3;
-      case 3:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
-          auto str = _internal_mutable_name();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "HPR_GetStudentInfoRes.name"));
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // uint32 age = 4;
-      case 4:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 32)) {
-          age_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else goto handle_unusual;
-        continue;
-      // string date = 5;
-      case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
-          auto str = _internal_mutable_date();
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "HPR_GetStudentInfoRes.date"));
-          CHK_(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_students(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<18>(ptr));
         } else goto handle_unusual;
         continue;
       default: {
@@ -645,36 +977,12 @@ failure:
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteInt32ToArray(1, this->_internal_err_code(), target);
   }
 
-  // uint32 roleid = 2;
-  if (this->roleid() != 0) {
+  // repeated .HPR_StudentInfo students = 2;
+  for (unsigned int i = 0,
+      n = static_cast<unsigned int>(this->_internal_students_size()); i < n; i++) {
     target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(2, this->_internal_roleid(), target);
-  }
-
-  // string name = 3;
-  if (this->name().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_name().data(), static_cast<int>(this->_internal_name().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "HPR_GetStudentInfoRes.name");
-    target = stream->WriteStringMaybeAliased(
-        3, this->_internal_name(), target);
-  }
-
-  // uint32 age = 4;
-  if (this->age() != 0) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteUInt32ToArray(4, this->_internal_age(), target);
-  }
-
-  // string date = 5;
-  if (this->date().size() > 0) {
-    ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_date().data(), static_cast<int>(this->_internal_date().length()),
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "HPR_GetStudentInfoRes.date");
-    target = stream->WriteStringMaybeAliased(
-        5, this->_internal_date(), target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(2, this->_internal_students(i), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -693,18 +1001,11 @@ size_t HPR_GetStudentInfoRes::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string name = 3;
-  if (this->name().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_name());
-  }
-
-  // string date = 5;
-  if (this->date().size() > 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_date());
+  // repeated .HPR_StudentInfo students = 2;
+  total_size += 1UL * this->_internal_students_size();
+  for (const auto& msg : this->students_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
   }
 
   // int32 err_code = 1;
@@ -712,20 +1013,6 @@ size_t HPR_GetStudentInfoRes::ByteSizeLong() const {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
         this->_internal_err_code());
-  }
-
-  // uint32 roleid = 2;
-  if (this->roleid() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_roleid());
-  }
-
-  // uint32 age = 4;
-  if (this->age() != 0) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::UInt32Size(
-        this->_internal_age());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -759,20 +1046,9 @@ void HPR_GetStudentInfoRes::MergeFrom(const HPR_GetStudentInfoRes& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.name().size() > 0) {
-    _internal_set_name(from._internal_name());
-  }
-  if (from.date().size() > 0) {
-    _internal_set_date(from._internal_date());
-  }
+  students_.MergeFrom(from.students_);
   if (from.err_code() != 0) {
     _internal_set_err_code(from._internal_err_code());
-  }
-  if (from.roleid() != 0) {
-    _internal_set_roleid(from._internal_roleid());
-  }
-  if (from.age() != 0) {
-    _internal_set_age(from._internal_age());
   }
 }
 
@@ -797,14 +1073,8 @@ bool HPR_GetStudentInfoRes::IsInitialized() const {
 void HPR_GetStudentInfoRes::InternalSwap(HPR_GetStudentInfoRes* other) {
   using std::swap;
   _internal_metadata_.Swap<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(&other->_internal_metadata_);
-  name_.Swap(&other->name_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  date_.Swap(&other->date_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), GetArena());
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(HPR_GetStudentInfoRes, age_)
-      + sizeof(HPR_GetStudentInfoRes::age_)
-      - PROTOBUF_FIELD_OFFSET(HPR_GetStudentInfoRes, err_code_)>(
-          reinterpret_cast<char*>(&err_code_),
-          reinterpret_cast<char*>(&other->err_code_));
+  students_.InternalSwap(&other->students_);
+  swap(err_code_, other->err_code_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata HPR_GetStudentInfoRes::GetMetadata() const {
@@ -2221,6 +2491,9 @@ void HPR_SvrMsg::InternalSwap(HPR_SvrMsg* other) {
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::HPR_GetStudentInfoReq* Arena::CreateMaybeMessage< ::HPR_GetStudentInfoReq >(Arena* arena) {
   return Arena::CreateMessageInternal< ::HPR_GetStudentInfoReq >(arena);
+}
+template<> PROTOBUF_NOINLINE ::HPR_StudentInfo* Arena::CreateMaybeMessage< ::HPR_StudentInfo >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::HPR_StudentInfo >(arena);
 }
 template<> PROTOBUF_NOINLINE ::HPR_GetStudentInfoRes* Arena::CreateMaybeMessage< ::HPR_GetStudentInfoRes >(Arena* arena) {
   return Arena::CreateMessageInternal< ::HPR_GetStudentInfoRes >(arena);

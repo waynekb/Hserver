@@ -16,9 +16,12 @@ bool HMysqlCallback::CallbackIsComplete() {
 
 int HMysqlCallback::DoMysqlResponse(HSqlCallTask* calltask) {
   MysqlResponse(calltask);
-  if (calltask->result) {
-    mysql_free_result(calltask->result);
+  int size = calltask->results.size();
+  for (int i = 0; i < size; i++) {
+    mysql_free_result(calltask->results[i]);
   }
+  std::vector<MYSQL_RES*> tmpv;
+  calltask->results.swap(tmpv);
   Subcall();
   return 0;
 }
@@ -33,7 +36,6 @@ int HMysqlCaller::AddCall(HMysqlCallback* sqlbase, uint32_t taskid, const char* 
   int len = strlen(sql);
   strncpy(sqlcall->sql, sql, len);
   sqlcall->sql[len] = '\0';
-  sqlcall->sqlcallbase = sqlbase;
   AddEvent(call);
   sqlbase->Addcall();
   return 0;
@@ -105,16 +107,13 @@ int HMysqlCaller::DoEvent(void* call) {
   const char* sql = (const char*)sqlcall->sql;
   int res = mysql_real_query(m_mysql, sql, len);
   if (res == 0) {
-    MYSQL_RES* result = NULL;
-    result = mysql_store_result(m_mysql);
-    if (result) {
-      sqlcall->result = result;
-    } else {
-      sqlcall->result = NULL;
-    }
+    do {
+      MYSQL_RES* result = NULL;
+      result = mysql_store_result(m_mysql);
+      sqlcall->results.push_back(result);
+    } while (!mysql_next_result(m_mysql));
   } else {
     const char* erro = mysql_error(m_mysql);
-    sqlcall->result = NULL;
     HLOG_ERR("%s\n", erro);
   }
   {
@@ -129,7 +128,8 @@ int HMysqlCaller::InitMysqlCon() {
   m_mysql = mysql_init(NULL);
   mysql_options(m_mysql, MYSQL_SET_CHARSET_NAME, "utf8");
   MYSQL* tmp = mysql_real_connect(m_mysql, "localhost", "root", "wayne0720", "student", 0, NULL,
-                                  CLIENT_MULTI_RESULTS);
+                                  CLIENT_MULTI_STATEMENTS);
+  // mysql_set_server_option(m_mysql, MYSQL_OPTION_MULTI_STATEMENTS_ON);
   if (tmp == NULL) {
     HLOG_INFO("MYSQL connect fail\n");
     return -1;

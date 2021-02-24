@@ -32,7 +32,9 @@ int main(int argc, char** argv) {
   head->set_cmd(1);
   head->set_seqno(100001);
 
-  body->set_roleid(1);
+  body->add_roleids(1);
+  body->add_roleids(2);
+  body->add_roleids(3);
   char buff[1024] = {0};
   msg.SerializeToArray((void*)buff, 1024);
 
@@ -52,9 +54,15 @@ int main(int argc, char** argv) {
   msg.ParseFromArray(buff, res);
 
   const HPR_GetStudentInfoRes& info = msg.body().get_student_info_res();
-
-  printf("student:%d name:%s age=%d subtime %s\n\n", info.roleid(), info.name().c_str(), info.age(),
-         info.date().c_str());
+  if (info.err_code() != 0) {
+    printf("GetStudentInfo fail\n");
+    return 0;
+  }
+  for (int i = 0; i < info.students_size(); i++) {
+    const HPR_StudentInfo& student = info.students(i);
+    printf("student:%d name:%s age=%d grade=%d sub_date:%s\n", student.roleid(),
+           student.name().c_str(), student.age(), student.grade(), student.date().c_str());
+  }
   close(clifd);
   return 0;
 }

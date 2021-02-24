@@ -21,9 +21,12 @@ class GetStudentInfoReq : public HSvrTask {
  public:
   int Start(const HPR_SvrMsg& msg) {
     const HPR_GetStudentInfoReq& reqbody = msg.body().get_student_info_req();
-    char sql[128] = {0};
-    int role_id = reqbody.roleid();
-    snprintf(sql, sizeof(sql), "select * from student where stu_id=%d", role_id);
+    char sql[512] = {0};
+    for (int i = 0; i < reqbody.roleids_size(); i++) {
+      int size = strlen(sql);
+      snprintf(sql + size, sizeof(sql) - size, "select * from student where stu_id=%d;",
+               reqbody.roleids(i));
+    }
     HMysqlCaller::GetInstance()->AddCall(this, m_taskid, (const char*)sql);
     return 0;
   }
@@ -35,19 +38,31 @@ class GetStudentInfoReq : public HSvrTask {
   }
 
   int MysqlResponse(HSqlCallTask* calltask) {
-    MYSQL_ROW sql_row;
-    MYSQL_RES* result = calltask->result;
+    int count = calltask->results.size();
     HPR_GetStudentInfoRes* resbody = GetResponse()->mutable_body()->mutable_get_student_info_res();
-    while ((sql_row = mysql_fetch_row(result)) != NULL) {
-      resbody->set_err_code(0);
-      int role_id = str2int((const char*)sql_row[0]);
-      resbody->set_roleid(role_id);
-      resbody->set_name((const char*)sql_row[1]);
-      int age = str2int((const char*)sql_row[2]);
-      resbody->set_age(age);
-      resbody->set_date((const char*)sql_row[4]);
+    if (count == 0) {
+      HLOG_INFO("QUERY mysql fail\n");
+      resbody->set_err_code(-1);
+      return 0;
     }
-    SendMsg();
+    for (int i = 0; i < count; i++) {
+      MYSQL_RES* result = calltask->results[i];
+      if (result) {
+        MYSQL_ROW sql_row;
+        while ((sql_row = mysql_fetch_row(result)) != NULL) {
+          resbody->set_err_code(0);
+          HPR_StudentInfo* student = resbody->add_students();
+          int role_id = str2int((const char*)sql_row[0]);
+          student->set_roleid(role_id);
+          student->set_name((const char*)sql_row[1]);
+          int age = str2int((const char*)sql_row[2]);
+          student->set_age(age);
+          int grade = str2int((const char*)sql_row[3]);
+          student->set_grade(grade);
+          student->set_date((const char*)sql_row[4]);
+        }
+      }
+    }
     return 0;
   }
 };

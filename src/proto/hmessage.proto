@@ -11,15 +11,20 @@ enum HPR_MsgCmdID{
 
 
 message HPR_GetStudentInfoReq{
+  repeated uint32 roleids = 1;
+}
+
+message HPR_StudentInfo{
   uint32 roleid = 1;
+  string name = 2;
+  uint32 age = 3;
+  uint32 grade = 4;
+  string date = 5;
 }
 
 message HPR_GetStudentInfoRes{
   int32 err_code = 1;
-  uint32 roleid = 2;
-  string name = 3;
-  uint32 age = 4;
-  string date = 5;
+  repeated HPR_StudentInfo students = 2;
 }
 
 message HPR_GetStudentScoreReq{

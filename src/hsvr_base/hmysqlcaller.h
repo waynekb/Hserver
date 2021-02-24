@@ -42,11 +42,10 @@ class HMysqlCallback : public HMysqlCallbackBase {
 
 struct HSqlCallTask {
  public:
-  char sql[256];
-  char calltitle[64];
+  char sql[512];
+  // char calltitle[64];
   uint32_t taskid;
-  HMysqlCallback* sqlcallbase;
-  MYSQL_RES* result;
+  std::vector<MYSQL_RES*> results;
 };
 
 class HMysqlCaller : public Singleton<HMysqlCaller>, public HLoopThreadPool, public HAsyncTaskbase {

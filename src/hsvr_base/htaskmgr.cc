@@ -21,6 +21,7 @@ int HTaskMgr::IsTaskComplete() {
   for (auto it = m_taskset.begin(); it != m_taskset.end(); it++) {
     HTaskBase* task = FindTask(*it);
     if (task->IsComplete()) {
+      task->SendMsg();
       ReleaseTask(*it);
     }
   }
