@@ -39,30 +39,33 @@ int main(int argc, char** argv) {
   msg.SerializeToArray((void*)buff, 1024);
 
   msg.mutable_head()->CopyFrom(msg.head());
-  printf("strlen %ld\n", strlen(buff));
-  res = send(clifd, buff, strlen(buff), 0);
-  printf("send len %d\n", res);
 
-  printf("\n*******************************\n");
+  for (int i = 0; i < 3; i++) {
+    res = send(clifd, buff, strlen(buff), 0);
+    printf("send len %d\n", res);
+    printf("\n*******************************\n");
+    char recvbuf[1024];
+    res = recv(clifd, recvbuf, 1024, 0);
+    printf("res = %d\n", res);
+    if (res <= 0) {
+      return 0;
+    }
 
-  res = recv(clifd, buff, 1024, 0);
-  printf("res = %d\n", res);
-  if (res <= 0) {
-    return 0;
+    msg.ParseFromArray(recvbuf, res);
+
+    const HPR_GetStudentInfoRes& info = msg.body().get_student_info_res();
+    if (info.err_code() != 0) {
+      printf("GetStudentInfo fail\n");
+      return 0;
+    }
+    for (int i = 0; i < info.students_size(); i++) {
+      const HPR_StudentInfo& student = info.students(i);
+      printf("student:%d name:%s age=%d grade=%d sub_date:%s\n", student.roleid(),
+             student.name().c_str(), student.age(), student.grade(), student.date().c_str());
+    }
+    sleep(1);
   }
 
-  msg.ParseFromArray(buff, res);
-
-  const HPR_GetStudentInfoRes& info = msg.body().get_student_info_res();
-  if (info.err_code() != 0) {
-    printf("GetStudentInfo fail\n");
-    return 0;
-  }
-  for (int i = 0; i < info.students_size(); i++) {
-    const HPR_StudentInfo& student = info.students(i);
-    printf("student:%d name:%s age=%d grade=%d sub_date:%s\n", student.roleid(),
-           student.name().c_str(), student.age(), student.grade(), student.date().c_str());
-  }
   close(clifd);
   return 0;
 }
