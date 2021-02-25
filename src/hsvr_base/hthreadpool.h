@@ -24,7 +24,7 @@ class HThreadPoolBase {
   int Start(int num);
   int Stop();
 
-  virtual int ThreadProc() = 0;
+  virtual int ThreadProc(int act) = 0;
 
  protected:
   bool m_runflag;
@@ -38,6 +38,7 @@ class HThreadPoolBase {
   THREADVECTOR m_threadvec;
 };
 
+static thread_local int m_threadid;
 class HLoopThreadPool : public HThreadPoolBase {
  public:
   HLoopThreadPool() : HThreadPoolBase(){};
@@ -52,7 +53,7 @@ class HLoopThreadPool : public HThreadPoolBase {
   void* GetEvent();
 
   int Stop();
-
+  int GetThreadid();
   /**
    * 因为不知道上层类的任务会是什么格式，所以当前任务列表保存的是指针。
    * 派生类创建任务结构，再将指针传入任务列表。
@@ -61,7 +62,7 @@ class HLoopThreadPool : public HThreadPoolBase {
   std::list<void*> m_eventlist;  //任务列表，线程从该列表获取任务。
 
  private:
-  virtual int ThreadProc();
+  virtual int ThreadProc(int act);
 
   std::mutex m_freemtx;
   std::mutex m_eventmtx;

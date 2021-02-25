@@ -10,7 +10,7 @@ int HThreadPoolBase::Start(int num) {
   }
   m_runflag = true;
   for (int i = 0; i < num; i++) {
-    m_threadvec.push_back(new std::thread(std::bind(&HThreadPoolBase::ThreadProc, this)));
+    m_threadvec.push_back(new std::thread(std::bind(&HThreadPoolBase::ThreadProc, this, i)));
   }
   HLOG_INFO("ThreadPool start successful\n");
   return 0;
@@ -65,6 +65,10 @@ void* HLoopThreadPool::GetFreeBox() {
   return event;
 }
 
+int HLoopThreadPool::GetThreadid() {
+  return m_threadid;
+}
+
 void* HLoopThreadPool::GetEvent() {
   std::unique_lock<std::mutex> lock(m_eventmtx);
   while (m_runflag && m_eventlist.empty()) {
@@ -92,8 +96,12 @@ int HLoopThreadPool::Stop() {
   return 0;
 }
 
-int HLoopThreadPool::ThreadProc() {
+int HLoopThreadPool::ThreadProc(int id) {
   while (m_runflag) {
+    m_threadid = id;
+    pthread_t tid;
+    tid = pthread_self();
+
     void* event = GetEvent();
     if (event) {
       DoEvent(event);

@@ -39,7 +39,6 @@ int ListenChannel::HandleInput() {
   if (fd == -1) {
     return -1;
   }
-  HLOG_DEBUG("Accept fd=%d\n", fd);
   HChannel *ch = HTcpChannelPool::GetInstance()->GetNewChannel();
   if (ch == NULL) {
     HLOG_WARN("TcpChannelpool full\n");

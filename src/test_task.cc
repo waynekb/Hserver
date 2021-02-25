@@ -22,12 +22,18 @@ class GetStudentInfoReq : public HSvrTask {
   int Start(const HPR_SvrMsg& msg) {
     const HPR_GetStudentInfoReq& reqbody = msg.body().get_student_info_req();
     char sql[512] = {0};
+    /*
     for (int i = 0; i < reqbody.roleids_size(); i++) {
       int size = strlen(sql);
       snprintf(sql + size, sizeof(sql) - size, "select * from student where stu_id=%d;",
                reqbody.roleids(i));
     }
     HMysqlCaller::GetInstance()->AddCall(this, m_taskid, (const char*)sql);
+    */
+    for (int i = 0; i < reqbody.roleids_size(); i++) {
+      snprintf(sql, sizeof(sql), "select * from student where stu_id=%d;", reqbody.roleids(i));
+      HMysqlCaller::GetInstance()->AddCall(this, m_taskid, (const char*)sql);
+    }
     return 0;
   }
 

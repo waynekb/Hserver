@@ -50,7 +50,7 @@ struct HSqlCallTask {
 
 class HMysqlCaller : public Singleton<HMysqlCaller>, public HLoopThreadPool, public HAsyncTaskbase {
  public:
-  HMysqlCaller() : m_initflag(false), m_queue(NULL), m_mysql(NULL){};
+  HMysqlCaller() : m_initflag(false), m_queue(NULL){};
   virtual ~HMysqlCaller(){};
 
   int AddCall(HMysqlCallback* sqlbase, uint32_t taskid, const char* sql);
@@ -61,7 +61,7 @@ class HMysqlCaller : public Singleton<HMysqlCaller>, public HLoopThreadPool, pub
   virtual int DoEvent(void* call);
 
  private:
-  int InitMysqlCon();
+  int InitMysqlCon(int num);
   int CloseMysqlCon();
   void InitFreeList();
 
@@ -77,7 +77,7 @@ class HMysqlCaller : public Singleton<HMysqlCaller>, public HLoopThreadPool, pub
   SQLCALLTASKQUEUEPTR m_queue;
 
   std::mutex m_resmtx;
-  MYSQL* m_mysql;
+  std::vector<MYSQL*> m_mysqls;
 };
 
 }  // namespace hsvr_base
